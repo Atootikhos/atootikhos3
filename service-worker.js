@@ -23,7 +23,7 @@ self.addEventListener('fetch', event => {
                     // Modify the URL in the response to appear as a dummy URL
                     const modifiedData = {
                         ...data,
-                        dummyUrl: 'https://crowncrete.com.au/config'
+                        dummyUrl: 'https://atootikhos.github.io/atootikhos3/apc.floori.io/config'
                     };
 
                     const modifiedResponse = new Response(JSON.stringify(modifiedData), {
