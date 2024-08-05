@@ -23,7 +23,7 @@ self.addEventListener('fetch', event => {
                     statusText: 'OK',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-Dummy-URL': 'https://dummy.api.server/floori/config' // Custom header to indicate the dummy URL
+                        'X-Dummy-URL': 'https://crowncrete.com.au/config' // Custom header to indicate the dummy URL
                     }
                 });
 
