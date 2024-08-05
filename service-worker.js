@@ -21,7 +21,12 @@ self.addEventListener('fetch', event => {
                     const data = await clonedResponse.json();
 
                     // Modify the URL in the response to appear as a dummy URL
-                    const modifiedResponse = new Response(JSON.stringify(data), {
+                    const modifiedData = {
+                        ...data,
+                        dummyUrl: 'https://crowncrete.com.au/config'
+                    };
+
+                    const modifiedResponse = new Response(JSON.stringify(modifiedData), {
                         status: 200,
                         statusText: 'OK',
                         headers: {
