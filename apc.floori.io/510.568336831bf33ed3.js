@@ -1,0 +1,1210 @@
+(function () {
+    try {
+        var N = typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {},
+            q = (new Error).stack;
+        q && (N._sentryDebugIds = N._sentryDebugIds || {}, N._sentryDebugIds[q] = "4585153f-9994-41c3-8598-891375083526", N._sentryDebugIdIdentifier = "sentry-dbid-4585153f-9994-41c3-8598-891375083526")
+    } catch {}
+})(), (self.webpackChunkCrownCrete = self.webpackChunkCrownCrete || []).push([
+    [510], {
+        510: (N, q, r) => {
+            r.d(q, {
+                C: () => W
+            });
+            var t = r(2560),
+                m = r(4666),
+                A = r(1378),
+                i = r(7759),
+                D = r(2996),
+                L = r(8803),
+                T = r(2499),
+                h = r(7879),
+                F = r(7549),
+                v = r(2508),
+                _ = r(8145),
+                S = r(8590),
+                u = r(973),
+                Q = r(5924),
+                Z = r(8281),
+                y = r(6096),
+                g = r(8951),
+                w = r(116),
+                a = r(9295),
+                x = r(538),
+                I = r(635),
+                f = r(9337),
+                M = r(7810),
+                B = r(1121),
+                k = (() => {
+                    return (d = k || (k = {})).meters = "meters", d.width = "width", d.length = "length", d.margin = "margin", k;
+                    var d
+                })();
+            let P = (() => {
+                class d extends Z.m1 {
+                    constructor(n) {
+                        super({
+                            metadata: n?.metadata,
+                            actionButtons: n?.actionButtons,
+                            margin: !1,
+                            metersOn: !0
+                        }), this.data = n, this.productsProvider = (0, t.f3M)(y.IA), this.configProvider = (0, t.f3M)(y.FI), this.dialog = (0, t.f3M)(y._R), this.dialogRef = (0, t.f3M)(Q.JH, {
+                            optional: !0
+                        }), this.marginValue = 1.1, this.viewModel$ = this.select(c => ({
+                            product: c.product,
+                            margin: c.margin,
+                            quoteEnabled: c.metadata?.isRequestQuoteButtonVisible,
+                            disclaimer: c.metadata?.disclaimer || "",
+                            summary: c.summary || 0,
+                            length: c.length || "",
+                            width: c.width || "",
+                            meters: c.meters || "",
+                            currency: c.currency,
+                            price: c.price,
+                            unit: c.unit
+                        })), this.setupCalculator()
+                    }
+                    action() {
+                        const n = this.get().actionButtons,
+                            c = n?.find(C => "quote" === C.type);
+                        this.dialogRef?.close(), this.dialog.open(M.c, {
+                            backdropClass: B.bj.darkOverlay,
+                            panelClass: B.bj.centerOverlay,
+                            containerClass: B.bj.stretchWrapper,
+                            data: {
+                                metadata: c,
+                                actionButtons: n
+                            }
+                        })
+                    }
+                    updateValue(n, c) {
+                        if (c !== k.margin) this.patchState({
+                            [c]: n
+                        }), [k.width, k.length].includes(c) ? this.calculateByDimensions() : this.get().metersOn ? this.calculateByMeters() : this.patchState({
+                            metersOn: !0
+                        });
+                        else {
+                            const {
+                                price: C,
+                                meters: b
+                            } = this.get(), U = Math.abs(+(b || 0));
+                            this.patchState({
+                                margin: n,
+                                summary: ((n ? U * this.marginValue : U) * (C || 1)).toFixed(2)
+                            })
+                        }
+                    }
+                    setupCalculator() {
+                        this.productsProvider.activeProduct$.pipe((0, g.R)(this.destroy$), (0, w.h)(n => !!n), (0, a.q)(1), (0, x.M)(this.productsProvider.transformations$.pipe((0, I.U)(n => n.options))), (0, f.b)(([n, c]) => {
+                            this.patchState({
+                                product: n,
+                                options: c,
+                                price: +(c?.prices?. [0]?.price || 1),
+                                currency: c?.prices?. [0]?.currency || "",
+                                unit: c?.displayUnit || ""
+                            })
+                        })).subscribe()
+                    }
+                    calculateByDimensions() {
+                        const {
+                            length: n,
+                            width: c,
+                            margin: C,
+                            price: b
+                        } = this.get(), U = Math.abs(+(n || 0)), O = Math.abs(+(c || 0));
+                        if (U <= 0 || O <= 0) return;
+                        const $ = O * U,
+                            V = C ? $ * this.marginValue : $;
+                        V > 0 && this.patchState({
+                            meters: $.toFixed(2),
+                            summary: (V * (b || 1)).toFixed(2),
+                            metersOn: !1
+                        })
+                    }
+                    calculateByMeters() {
+                        const {
+                            meters: n,
+                            margin: c,
+                            price: C
+                        } = this.get(), b = Math.abs(+(n || 0));
+                        this.patchState({
+                            summary: ((c ? b * this.marginValue : b) * (C || 1)).toFixed(2),
+                            length: "",
+                            width: ""
+                        })
+                    }
+                }
+                return d.\u0275fac = function (n) {
+                    return new(n || d)(t.LFG(y.wM, 8))
+                }, d.\u0275prov = t.Yz7({
+                    token: d,
+                    factory: d.\u0275fac
+                }), d
+            })();
+            var z = r(852);
+
+            function G(d, J) {
+                if (1 & d && (t.TgZ(0, "p", 24), t._uU(1), t.qZA()), 2 & d) {
+                    const n = t.oxw(2).ngrxLet;
+                    t.xp6(1), t.AsE(" ", n.price, " ", n.currency, " ")
+                }
+            }
+
+            function K(d, J) {
+                if (1 & d && (t.TgZ(0, "div", 20), t._UZ(1, "picture", 21), t.TgZ(2, "div", 22)(3, "p", 14), t._uU(4), t.qZA(), t.YNc(5, G, 2, 2, "p", 23), t.qZA()()), 2 & d) {
+                    const n = t.oxw().ngrxLet;
+                    t.xp6(1), t.Q6J("imgSet", n.product.image || void 0), t.xp6(3), t.hij(" ", n.product.name.default, " "), t.xp6(1), t.Q6J("ngIf", n.price)
+                }
+            }
+
+            function Y(d, J) {
+                if (1 & d) {
+                    const n = t.EpF();
+                    t.TgZ(0, "div", 25)(1, "button", 26), t.NdJ("click", function () {
+                        t.CHM(n);
+                        const C = t.oxw(2);
+                        return t.KtG(C.actionBtnClick())
+                    }), t._uU(2), t.ALo(3, "flTranslate"), t.qZA()()
+                }
+                if (2 & d) {
+                    const n = t.oxw().ngrxLet;
+                    t.xp6(1), t.Q6J("disabled", n.summary <= 0), t.xp6(1), t.hij(" ", t.lcZ(3, 2, "calculator.buttonText"), " ")
+                }
+            }
+
+            function R(d, J) {
+                if (1 & d && (t.TgZ(0, "div", 27)(1, "p", 14)(2, "span", 28), t._uU(3, "* "), t.qZA(), t._uU(4), t.qZA()()), 2 & d) {
+                    const n = t.oxw().ngrxLet;
+                    t.xp6(4), t.hij(" ", n.disclaimer, " ")
+                }
+            }
+
+            function X(d, J) {
+                if (1 & d) {
+                    const n = t.EpF();
+                    t.TgZ(0, "div", 1), t.YNc(1, K, 6, 3, "div", 2), t.TgZ(2, "div", 3)(3, "p", 4), t._uU(4), t.ALo(5, "flTranslate"), t.TgZ(6, "span", 5), t._uU(7), t.ALo(8, "number"), t.qZA()()(), t.TgZ(9, "div", 6)(10, "div")(11, "div", 7)(12, "div", 8)(13, "p", 9), t._uU(14), t.ALo(15, "flTranslate"), t.qZA(), t.TgZ(16, "CrownCrete-input", 10), t.NdJ("decimalOnlyChange", function (C) {
+                        t.CHM(n);
+                        const b = t.oxw();
+                        return t.KtG(b.changeValue(C, b.fieldKeys.length))
+                    }), t.ALo(17, "flTranslate"), t.TgZ(18, "span", 11), t._uU(19), t.qZA()()(), t.TgZ(20, "div", 8)(21, "p", 9), t._uU(22), t.ALo(23, "flTranslate"), t.qZA(), t.TgZ(24, "CrownCrete-input", 10), t.NdJ("decimalOnlyChange", function (C) {
+                        t.CHM(n);
+                        const b = t.oxw();
+                        return t.KtG(b.changeValue(C, b.fieldKeys.width))
+                    }), t.ALo(25, "flTranslate"), t.TgZ(26, "span", 11), t._uU(27), t.qZA()()()(), t.TgZ(28, "div", 12), t._UZ(29, "div", 13), t.TgZ(30, "p", 14), t._uU(31), t.ALo(32, "flTranslate"), t.qZA()(), t.TgZ(33, "div", 15)(34, "div", 8)(35, "p", 9), t._uU(36), t.ALo(37, "flTranslate"), t.qZA(), t.TgZ(38, "CrownCrete-input", 10), t.NdJ("decimalOnlyChange", function (C) {
+                        t.CHM(n);
+                        const b = t.oxw();
+                        return t.KtG(b.changeValue(C, b.fieldKeys.meters))
+                    }), t.ALo(39, "flTranslate"), t.TgZ(40, "span", 11), t._uU(41), t.TgZ(42, "sup"), t._uU(43, "2"), t.qZA()()()(), t.TgZ(44, "CrownCrete-checkbox", 16), t.NdJ("ngModelChange", function (C) {
+                        t.CHM(n);
+                        const b = t.oxw();
+                        return t.KtG(b.changeMargin(C))
+                    }), t.TgZ(45, "span", 9), t._uU(46), t.ALo(47, "flTranslate"), t.qZA()()()(), t.TgZ(48, "div", 17), t.YNc(49, Y, 4, 4, "div", 18), t.YNc(50, R, 5, 1, "div", 19), t.qZA()()()
+                }
+                if (2 & d) {
+                    const n = J.ngrxLet;
+                    t.xp6(1), t.Q6J("ngIf", n.product), t.xp6(3), t.hij(" ", t.lcZ(5, 23, "calculator.summary"), ": "), t.xp6(3), t.AsE("", t.xi3(8, 25, n.summary, "1.2-2"), " ", n.currency, ""), t.xp6(7), t.hij(" ", t.lcZ(15, 28, "calculator.length"), " "), t.xp6(2), t.s9C("placeholder", t.lcZ(17, 30, "calculator.length")), t.Q6J("ngModel", n.length), t.xp6(3), t.Oqu(n.unit), t.xp6(3), t.hij(" ", t.lcZ(23, 32, "calculator.width"), " "), t.xp6(2), t.s9C("placeholder", t.lcZ(25, 34, "calculator.width")), t.Q6J("ngModel", n.width), t.xp6(3), t.Oqu(n.unit), t.xp6(4), t.hij(" ", t.lcZ(32, 36, "calculator.or"), " "), t.xp6(5), t.hij(" ", t.lcZ(37, 38, "calculator.roomArea"), " "), t.xp6(2), t.s9C("placeholder", t.lcZ(39, 40, "calculator.roomArea")), t.Q6J("ngModel", n.meters), t.xp6(3), t.Oqu(n.unit), t.xp6(3), t.ekj("no-margin-bottom", !n.quoteEnabled), t.Q6J("ngModel", n.margin), t.xp6(2), t.hij(" ", t.lcZ(47, 42, "calculator.includeMargin"), " "), t.xp6(3), t.Q6J("ngIf", n.quoteEnabled), t.xp6(1), t.Q6J("ngIf", n.disclaimer)
+                }
+            }
+            let W = (() => {
+                class d {
+                    constructor() {
+                        this.store = (0, t.f3M)(P), this.viewData$ = this.store.viewModel$, this.fieldKeys = k
+                    }
+                    actionBtnClick() {
+                        this.store.action()
+                    }
+                    changeMargin(n) {
+                        this.store.updateValue(n, k.margin)
+                    }
+                    changeValue(n, c) {
+                        this.store.updateValue(n, c)
+                    }
+                }
+                return d.\u0275fac = function (n) {
+                    return new(n || d)
+                }, d.\u0275cmp = t.Xpm({
+                    type: d,
+                    selectors: [
+                        ["CrownCrete-calculator"]
+                    ],
+                    hostAttrs: [1, "CrownCrete-calculator"],
+                    standalone: !0,
+                    features: [t._Bn([P]), t.jDz],
+                    decls: 1,
+                    vars: 1,
+                    consts: [
+                        ["class", "CrownCrete-calculator-content", 4, "ngrxLet"],
+                        [1, "CrownCrete-calculator-content"],
+                        ["class", "calculator-product-details", 4, "ngIf"],
+                        [1, "calculator-result"],
+                        [1, "CrownCrete-semi-regular"],
+                        [1, "CrownCrete-bold"],
+                        [1, "calculator-fields"],
+                        [1, "dimensions-fields"],
+                        [1, "CrownCrete-field"],
+                        [1, "CrownCrete-caption"],
+                        ["CrownCreteDecimalOnly", "", 3, "ngModel", "placeholder", "decimalOnlyChange"],
+                        [1, "CrownCrete-input-appendix", "CrownCrete-caption", "CrownCrete-regular"],
+                        [1, "calculator-separator"],
+                        [1, "separator-line"],
+                        [1, "CrownCrete-caption", "CrownCrete-semi-regular"],
+                        [1, "meters-field"],
+                        [1, "align-checkbox-end", 3, "ngModel", "ngModelChange"],
+                        [1, "calculator-fields-wrapper"],
+                        ["class", "calculator-actions", 4, "ngIf"],
+                        ["class", "calculator-disclaimer", 4, "ngIf"],
+                        [1, "calculator-product-details"],
+                        ["CrownCrete-picture", "", 1, "contain", "aspect-ratio-1-1", 3, "imgSet"],
+                        [1, "calculator-product-info"],
+                        ["class", "CrownCrete-label CrownCrete-semi-regular", 4, "ngIf"],
+                        [1, "CrownCrete-label", "CrownCrete-semi-regular"],
+                        [1, "calculator-actions"],
+                        ["CrownCrete-button", "", 1, "primary", "big", "CrownCrete-w100prc", 3, "disabled", "click"],
+                        [1, "calculator-disclaimer"],
+                        [1, "required-marker"]
+                    ],
+                    template: function (n, c) {
+                        1 & n && t.YNc(0, X, 51, 44, "div", 0), 2 & n && t.Q6J("ngrxLet", c.viewData$)
+                    },
+                    dependencies: [m.ez, m.O5, m.JJ, Q.wC, A.fP, i.c, D.i, L.a, T.i, h.N, z.X, _.v, u.Wo, S.au, F._N, F.eJ, v.u5, v.JJ, v.On],
+                    styles: [".CrownCrete-calculator{display:flex;flex-direction:column;padding-top:0}.CrownCrete-calculator .calculator-product-details{padding:var(--fl-y-padding-xs) var(--fl-x-padding);background-color:var(--fl-bg100);display:flex;margin:0 calc(var(--fl-x-padding) * -1) var(--fl-y-padding);border-bottom:1px solid var(--fl-border-clr);border-top:1px solid var(--fl-border-clr)}.CrownCrete-calculator .calculator-product-details picture{width:3.5rem;min-width:3.5rem;border-radius:8px}.CrownCrete-calculator .calculator-product-details .calculator-product-info{padding-left:var(--fl-y-padding);display:flex;flex-direction:column;justify-content:center}.CrownCrete-calculator .calculator-product-details .calculator-product-info .CrownCrete-caption{color:var(--fl-fg)}.CrownCrete-calculator .calculator-product-details .calculator-product-info .CrownCrete-label{margin-top:var(--fl-y-padding-xs);color:var(--fl-fg700)}@media (min-width: 768px){.CrownCrete-calculator .calculator-product-details{padding:var(--fl-y-padding-xs) var(--fl-x-padding-md);margin:0 calc(var(--fl-x-padding-md) * -1) var(--fl-y-padding)}}.CrownCrete-calculator .calculator-result{background-color:var(--fl-primary100);padding:.75rem var(--fl-x-padding);border-radius:var(--fl-border-radius);border:1px solid var(--fl-primary200);margin:0 0 var(--fl-y-padding)}.CrownCrete-calculator .calculator-result p{color:var(--fl-primary800)}.CrownCrete-calculator .dimensions-fields{display:grid;grid-template-columns:1fr;grid-row-gap:var(--fl-y-padding)}@media (min-width: 768px){.CrownCrete-calculator .dimensions-fields{grid-template-columns:repeat(2,238px);grid-column-gap:var(--fl-x-padding);grid-row-gap:0}}.CrownCrete-calculator .dimensions-fields .CrownCrete-input input{min-width:100px}.CrownCrete-calculator .calculator-fields{display:flex;flex-direction:column;justify-content:space-between;flex:1}.CrownCrete-calculator .calculator-separator{position:relative;height:1rem;display:flex;align-items:center;justify-content:center;margin:var(--fl-y-padding) 0}.CrownCrete-calculator .calculator-separator .separator-line{position:absolute;background-color:var(--fl-border-clr);height:1px;width:100%}.CrownCrete-calculator .calculator-separator p{position:absolute;top:0;bottom:0;background-color:var(--fl-bg);padding:0 var(--fl-x-padding-xs)}.CrownCrete-calculator .meters-field .CrownCrete-field,.CrownCrete-calculator .calculator-actions,.CrownCrete-calculator .CrownCrete-calculator-content,.CrownCrete-calculator .CrownCrete-checkbox{margin-bottom:var(--fl-y-padding)}.CrownCrete-calculator .no-margin-bottom{margin-bottom:0}.CrownCrete-calculator .CrownCrete-calculator-content .CrownCrete-input-appendix{color:var(--fl-fg700);margin-bottom:0}.CrownCrete-calculator .CrownCrete-checkbox{justify-content:flex-start}.CrownCrete-calculator .calculator-disclaimer{color:var(--fl-fg700)}.CrownCrete-calculator .calculator-disclaimer span{color:var(--fl-error-primary)}\n"],
+                    encapsulation: 2,
+                    changeDetection: 0
+                }), d
+            })()
+        },
+        8145: (N, q, r) => {
+            r.d(q, {
+                v: () => L
+            });
+            var t = r(9263),
+                m = r(4583),
+                A = r(3599),
+                i = r(6096),
+                D = r(2560);
+            let L = (() => {
+                class T {}
+                return T.\u0275fac = function (F) {
+                    return new(F || T)
+                }, T.\u0275mod = D.oAB({
+                    type: T
+                }), T.\u0275inj = D.cJS({
+                    providers: [{
+                        provide: i.IA,
+                        useClass: m.BI
+                    }],
+                    imports: [t.Aw.forFeature(m.WF, m.Og), A.sQ.forFeature([m.yh])]
+                }), T
+            })()
+        },
+        7931: (N, q, r) => {
+            r.d(q, {
+                g: () => _,
+                R: () => S
+            });
+            var t = r(4666),
+                m = r(5551),
+                A = r(9310),
+                i = r(2560);
+            const D = ["CrownCrete-loader", ""];
+
+            function L(u, Q) {
+                1 & u && (i.O4$(), i.TgZ(0, "svg", 5), i._UZ(1, "circle", 6), i.qZA())
+            }
+
+            function T(u, Q) {
+                1 & u && (i.TgZ(0, "div", 7), i._UZ(1, "div")(2, "div")(3, "div")(4, "div"), i.qZA())
+            }
+
+            function h(u, Q) {
+                1 & u && (i.TgZ(0, "div", 8), i._UZ(1, "CrownCrete-icon", 9)(2, "CrownCrete-icon", 9)(3, "CrownCrete-icon", 9), i.qZA())
+            }
+
+            function F(u, Q) {
+                if (1 & u && (i.TgZ(0, "div", 10), i._UZ(1, "CrownCrete-progress-loader", 11), i.qZA()), 2 & u) {
+                    const Z = i.oxw();
+                    i.xp6(1), i.Q6J("mainLabel", Z.progressValue)
+                }
+            }
+
+            function v(u, Q) {
+                if (1 & u && (i.TgZ(0, "p", 12), i._uU(1), i.qZA()), 2 & u) {
+                    const Z = i.oxw();
+                    i.xp6(1), i.hij(" ", Z.label, "\n")
+                }
+            }
+            let _ = (() => {
+                class u {
+                    constructor() {
+                        this.CrownCreteLoaderType = S, this.label = "", this.type = S.circle, this.showProgress = !1, this.progressValue = 0
+                    }
+                    get withlabel() {
+                        return !!this.label
+                    }
+                }
+                return u.\u0275fac = function (Z) {
+                    return new(Z || u)
+                }, u.\u0275cmp = i.Xpm({
+                    type: u,
+                    selectors: [
+                        ["", "CrownCrete-loader", ""]
+                    ],
+                    hostAttrs: [1, "CrownCrete-loader"],
+                    hostVars: 2,
+                    hostBindings: function (Z, y) {
+                        2 & Z && i.ekj("labeled", y.withlabel)
+                    },
+                    inputs: {
+                        label: "label",
+                        type: "type",
+                        showProgress: "showProgress",
+                        progressValue: "progressValue"
+                    },
+                    standalone: !0,
+                    features: [i.jDz],
+                    attrs: D,
+                    decls: 5,
+                    vars: 5,
+                    consts: [
+                        ["class", "CrownCrete-loader-circle", "xmlns", "http://www.w3.org/2000/svg", "viewBox", "0 0 100 100", "preserveAspectRatio", "xMidYMid", "style", "\n        margin-right: -2px;\n        display: block;\n        background-repeat-y: initial;\n        background-repeat-x: initial;\n        background-color: transparent;\n        animation-play-state: running;\n    ", 4, "ngIf"],
+                        ["class", "CrownCrete-loader-CrownCrete", 4, "ngIf"],
+                        ["class", "CrownCrete-loader-stars", 4, "ngIf"],
+                        ["class", "CrownCrete-loader-progress-bar", 4, "ngIf"],
+                        ["class", "CrownCrete-caption CrownCrete-semi-bold", 4, "ngIf"],
+                        ["xmlns", "http://www.w3.org/2000/svg", "viewBox", "0 0 100 100", "preserveAspectRatio", "xMidYMid", 1, "CrownCrete-loader-circle", 2, "margin-right", "-2px", "display", "block", "background-repeat-y", "initial", "background-repeat-x", "initial", "background-color", "transparent", "animation-play-state", "running"],
+                        ["cx", "50", "cy", "50", "fill", "none", "stroke", "currentColor", "stroke-width", "8", "stroke-linecap", "round", "r", "45", "stroke-dasharray", "164.93361431346415 56.97787143782138", "transform", "matrix(1,0,0,1,0,0)", 2, "transform", "matrix(1, 0, 0, 1, 0, 0)", "animation-play-state", "paused"],
+                        [1, "CrownCrete-loader-CrownCrete"],
+                        [1, "CrownCrete-loader-stars"],
+                        ["name", "fl_star_s"],
+                        [1, "CrownCrete-loader-progress-bar"],
+                        [1, "loader-progress", 3, "mainLabel"],
+                        [1, "CrownCrete-caption", "CrownCrete-semi-bold"]
+                    ],
+                    template: function (Z, y) {
+                        1 & Z && (i.YNc(0, L, 2, 0, "svg", 0), i.YNc(1, T, 5, 0, "div", 1), i.YNc(2, h, 4, 0, "div", 2), i.YNc(3, F, 2, 1, "div", 3), i.YNc(4, v, 2, 1, "p", 4)), 2 & Z && (i.Q6J("ngIf", y.CrownCreteLoaderType.circle === y.type), i.xp6(1), i.Q6J("ngIf", y.type === y.CrownCreteLoaderType.CrownCrete), i.xp6(1), i.Q6J("ngIf", y.type === y.CrownCreteLoaderType.stars), i.xp6(1), i.Q6J("ngIf", y.showProgress), i.xp6(1), i.Q6J("ngIf", y.label))
+                    },
+                    dependencies: [t.ez, t.O5, m.K, A.f],
+                    encapsulation: 2,
+                    changeDetection: 0
+                }), u
+            })();
+            var S = (() => {
+                return (u = S || (S = {})).circle = "circle", u.CrownCrete = "CrownCrete", u.stars = "stars", S;
+                var u
+            })()
+        },
+        2499: (N, q, r) => {
+            r.d(q, {
+                i: () => T
+            });
+            var t = r(2560),
+                m = r(4666),
+                A = r(1121);
+            const i = ["CrownCrete-picture", ""];
+
+            function D(h, F) {
+                if (1 & h) {
+                    const v = t.EpF();
+                    t.TgZ(0, "img", 3), t.NdJ("error", function () {
+                        t.CHM(v);
+                        const S = t.oxw();
+                        return t.KtG(S.onImgError())
+                    }), t.qZA()
+                }
+                if (2 & h) {
+                    const v = t.oxw();
+                    t.Q6J("src", v.mobile, t.LSH)
+                }
+            }
+
+            function L(h, F) {
+                1 & h && t._UZ(0, "img", 4)
+            }
+            let T = (() => {
+                class h {
+                    constructor() {
+                        this.cdr = (0, t.f3M)(t.sBO), this.defaultImg = "", this._showPlaceholder = !1, this.sourceTablet = `media="(min-width:${A.Ff.screenBreakpoints.tablet})"`, this.sourceDesktop = `media="(min-width:${A.Ff.screenBreakpoints.desktop})"`, this.alt = ""
+                    }
+                    get showPlaceholder() {
+                        return this._showPlaceholder
+                    }
+                    set imgSet(v) {
+                        v ? (this._imgSet = {
+                            ...v
+                        }, this.defaultImg = this._imgSet?.small || this._imgSet?.medium || this._imgSet?.large || "", this.cdr.markForCheck()) : this._imgSet = void 0
+                    }
+                    get mobile() {
+                        return this._imgSet?.small || this.defaultImg
+                    }
+                    get tablet() {
+                        return this._imgSet?.medium || this.defaultImg
+                    }
+                    get desktop() {
+                        return this._imgSet?.large || this.defaultImg
+                    }
+                    onImgError() {
+                        this._showPlaceholder = !0, this.cdr.markForCheck()
+                    }
+                }
+                return h.\u0275fac = function (v) {
+                    return new(v || h)
+                }, h.\u0275cmp = t.Xpm({
+                    type: h,
+                    selectors: [
+                        ["picture", "CrownCrete-picture", ""]
+                    ],
+                    inputs: {
+                        alt: "alt",
+                        imgSet: "imgSet"
+                    },
+                    standalone: !0,
+                    features: [t.jDz],
+                    attrs: i,
+                    decls: 4,
+                    vars: 6,
+                    consts: [
+                        [3, "media", "srcset"],
+                        ["loading", "lazy", 3, "src", "error", 4, "ngIf"],
+                        ["src", "/assets/images/no-image.svg", "alt", "placeholder", 4, "ngIf"],
+                        ["loading", "lazy", 3, "src", "error"],
+                        ["src", "/assets/images/no-image.svg", "alt", "placeholder"]
+                    ],
+                    template: function (v, _) {
+                        1 & v && (t._UZ(0, "source", 0)(1, "source", 0), t.YNc(2, D, 1, 1, "img", 1), t.YNc(3, L, 1, 0, "img", 2)), 2 & v && (t.Q6J("media", _.sourceTablet)("srcset", _.tablet), t.xp6(1), t.Q6J("media", _.sourceDesktop)("srcset", _.desktop), t.xp6(1), t.Q6J("ngIf", !_.showPlaceholder), t.xp6(1), t.Q6J("ngIf", _.showPlaceholder))
+                    },
+                    dependencies: [m.ez, m.O5],
+                    encapsulation: 2,
+                    changeDetection: 0
+                }), h
+            })()
+        },
+        8803: (N, q, r) => {
+            r.d(q, {
+                a: () => y
+            });
+            var t = r(2560),
+                m = r(4666),
+                A = r(2508),
+                i = r(5551),
+                D = r(7759),
+                L = r(9739),
+                T = r(8951),
+                h = r(9337);
+            let F = (() => {
+                class g {
+                    constructor() {
+                        this.disable = !1
+                    }
+                    onEnterKeydown(a) {
+                        !this.disable || (a.preventDefault(), a.stopImmediatePropagation())
+                    }
+                }
+                return g.\u0275fac = function (a) {
+                    return new(a || g)
+                }, g.\u0275dir = t.lG2({
+                    type: g,
+                    selectors: [
+                        ["", "CrownCreteDisableEnter", ""]
+                    ],
+                    hostBindings: function (a, x) {
+                        1 & a && t.NdJ("keydown.enter", function (f) {
+                            return x.onEnterKeydown(f)
+                        })
+                    },
+                    inputs: {
+                        disable: ["CrownCreteDisableEnter", "disable"]
+                    },
+                    standalone: !0
+                }), g
+            })();
+
+            function v(g, w) {
+                if (1 & g) {
+                    const a = t.EpF();
+                    t.TgZ(0, "textarea", 3), t.NdJ("focus", function () {
+                        t.CHM(a);
+                        const I = t.oxw();
+                        return t.KtG(I.focusChanged(!0))
+                    })("blur", function () {
+                        t.CHM(a);
+                        const I = t.oxw();
+                        return t.KtG(I.focusChanged(!1))
+                    })("input", function (I) {
+                        t.CHM(a);
+                        const f = t.oxw();
+                        let M;
+                        return t.KtG(f.value = null == (M = I.target) ? null : M.value)
+                    }), t.qZA()
+                }
+                if (2 & g) {
+                    const a = t.oxw();
+                    t.Q6J("CrownCreteDisableEnter", a.disableSubmit)("placeholder", a.placeholder)("value", a.value)("disabled", a.disabled)("readonly", a.readonly)("required", a.required)
+                }
+            }
+
+            function _(g, w) {
+                if (1 & g) {
+                    const a = t.EpF();
+                    t.TgZ(0, "input", 4), t.NdJ("focus", function () {
+                        t.CHM(a);
+                        const I = t.oxw();
+                        return t.KtG(I.focusChanged(!0))
+                    })("blur", function () {
+                        t.CHM(a);
+                        const I = t.oxw();
+                        return t.KtG(I.focusChanged(!1))
+                    })("input", function (I) {
+                        t.CHM(a);
+                        const f = t.oxw();
+                        let M;
+                        return t.KtG(f.value = null == (M = I.target) ? null : M.value)
+                    }), t.qZA()
+                }
+                if (2 & g) {
+                    const a = t.oxw();
+                    t.Q6J("CrownCreteDisableEnter", a.disableSubmit)("type", a.type)("placeholder", a.placeholder)("value", a.value)("disabled", a.disabled)("readonly", a.readonly)("required", a.required)
+                }
+            }
+
+            function S(g, w) {
+                1 & g && (t.TgZ(0, "button", 7), t._UZ(1, "CrownCrete-icon", 8), t.qZA())
+            }
+
+            function u(g, w) {
+                if (1 & g) {
+                    const a = t.EpF();
+                    t.TgZ(0, "div", 5), t.NdJ("click", function () {
+                        t.CHM(a);
+                        const I = t.oxw();
+                        return t.KtG(I.clearValue())
+                    }), t.YNc(1, S, 2, 0, "button", 6), t.qZA()
+                }
+                if (2 & g) {
+                    const a = t.oxw();
+                    t.xp6(1), t.Q6J("ngIf", a.value)
+                }
+            }
+            const Q = [
+                    [
+                        ["", 8, "CrownCrete-input-prefix"]
+                    ],
+                    [
+                        ["", 8, "CrownCrete-input-appendix"]
+                    ]
+                ],
+                Z = [".CrownCrete-input-prefix", ".CrownCrete-input-appendix"];
+            let y = (() => {
+                class g extends L.bJ {
+                    constructor() {
+                        super(...arguments), this.type = "text", this.clear = !0, this.disableSubmit = !1, this.updateOn = "change", this.changed = new t.vpe, this._placeholder = "", this._value = ""
+                    }
+                    set value(a) {
+                        if (null !== this._value && a !== this.value) return this._value = a, this.onChange(this._value), this.changed.emit(this._value), void this.cdr.detectChanges();
+                        this._value = a, this.cdr.detectChanges()
+                    }
+                    get value() {
+                        return this._value
+                    }
+                    set placeholder(a) {
+                        a !== this._placeholder && (this._placeholder = a || "", this.cdr.markForCheck())
+                    }
+                    get placeholder() {
+                        return this._placeholder
+                    }
+                    get isTextArea() {
+                        return "textarea" === this.type
+                    }
+                    writeValue(a) {
+                        this.onChangeInit && (this.value = a)
+                    }
+                    clearValue() {
+                        this.input?.nativeElement.focus(), this.value = ""
+                    }
+                    focusChanged(a) {
+                        super.focusChanged(a), this._invalid = Object.keys(this.control?.errors || {}).length && this.control?.invalid && !a || !1, this.cdr.markForCheck()
+                    }
+                    setupControl() {
+                        super.setupControl(), "change" === this.updateOn && this.control?.statusChanges?.pipe((0, T.R)(this.destroyed), (0, h.b)(() => {
+                            this._invalid = !this.control?.pristine && this.control?.invalid || !1, this.cdr.markForCheck()
+                        })).subscribe()
+                    }
+                }
+                return g.\u0275fac = function () {
+                    let w;
+                    return function (x) {
+                        return (w || (w = t.n5z(g)))(x || g)
+                    }
+                }(), g.\u0275cmp = t.Xpm({
+                    type: g,
+                    selectors: [
+                        ["CrownCrete-input"]
+                    ],
+                    hostAttrs: [1, "CrownCrete-input"],
+                    hostVars: 5,
+                    hostBindings: function (a, x) {
+                        2 & a && (t.Ikx("disabled", x.disabled)("required", x.required)("readonly", x.readonly), t.ekj("textarea", x.isTextArea))
+                    },
+                    inputs: {
+                        type: "type",
+                        clear: "clear",
+                        disableSubmit: "disableSubmit",
+                        updateOn: "updateOn",
+                        value: "value",
+                        placeholder: "placeholder"
+                    },
+                    outputs: {
+                        changed: "changed"
+                    },
+                    standalone: !0,
+                    features: [t._Bn([{
+                        provide: A.JU,
+                        multi: !0,
+                        useExisting: g
+                    }]), t.qOj, t.jDz],
+                    ngContentSelectors: Z,
+                    decls: 5,
+                    vars: 3,
+                    consts: [
+                        [3, "CrownCreteDisableEnter", "placeholder", "value", "disabled", "readonly", "required", "focus", "blur", "input", 4, "ngIf"],
+                        [3, "CrownCreteDisableEnter", "type", "placeholder", "value", "disabled", "readonly", "required", "focus", "blur", "input", 4, "ngIf"],
+                        ["class", "CrownCrete-input-clear", 3, "click", 4, "ngIf"],
+                        [3, "CrownCreteDisableEnter", "placeholder", "value", "disabled", "readonly", "required", "focus", "blur", "input"],
+                        [3, "CrownCreteDisableEnter", "type", "placeholder", "value", "disabled", "readonly", "required", "focus", "blur", "input"],
+                        [1, "CrownCrete-input-clear", 3, "click"],
+                        ["CrownCrete-icon-button", "", 4, "ngIf"],
+                        ["CrownCrete-icon-button", ""],
+                        ["name", "fl_close"]
+                    ],
+                    template: function (a, x) {
+                        1 & a && (t.F$t(Q), t.Hsn(0), t.YNc(1, v, 1, 6, "textarea", 0), t.YNc(2, _, 1, 7, "input", 1), t.YNc(3, u, 2, 1, "div", 2), t.Hsn(4, 1)), 2 & a && (t.xp6(1), t.Q6J("ngIf", "textarea" === x.type), t.xp6(1), t.Q6J("ngIf", "textarea" !== x.type), t.xp6(1), t.Q6J("ngIf", x.clear && !x.disabled && !x.readonly))
+                    },
+                    dependencies: [m.ez, m.O5, A.u5, i.K, D.c, F],
+                    encapsulation: 2,
+                    changeDetection: 0
+                }), g
+            })()
+        },
+        7810: (N, q, r) => {
+            r.d(q, {
+                c: () => xt
+            });
+            var t = r(2560),
+                m = r(4666),
+                A = r(5924),
+                i = r(7879),
+                D = r(9403),
+                L = r(7759),
+                T = r(7549),
+                h = r(2874),
+                F = r(1773),
+                v = r(8951),
+                _ = r(9337),
+                S = r(8281),
+                u = r(6096);
+            let Q = (() => {
+                class e extends S.m1 {
+                    constructor(o, s) {
+                        super({
+                            view: s?.metadata?.quoteType || h.Q_.standard,
+                            metadata: s.metadata,
+                            buttonDisabled: !0,
+                            scrollOn: !0
+                        }), this.dialogRef = o, this.data = s, this.viewData$ = this.select(p => ({
+                            view: p.view,
+                            title: p.view === h.Q_.standard ? "quote.standardTitle" : "",
+                            iframeUrl: p.metadata?.iframeUrl,
+                            renderIframeUrl: p.metadata?.iframeUrl?.startsWith("<iframe"),
+                            buttonDisabled: p.view === h.Q_.standard && !!p.buttonDisabled,
+                            buttonLabel: p.view !== h.Q_.standard || p.quoteSend ? "close" : "send",
+                            scrollOn: p.scrollOn
+                        })), this.metadata$ = this.select(p => p.metadata), this.isStandardQuote$ = this.select(p => p.view === h.Q_.standard), this.actionBtnEmitter = new t.vpe
+                    }
+                    actionBtnClick() {
+                        const {
+                            quoteSend: o,
+                            view: s
+                        } = this.get();
+                        s === h.Q_.iframe || o ? this.dialogRef.close() : this.actionBtnEmitter.emit()
+                    }
+                    setQuoteSend(o) {
+                        this.patchState({
+                            quoteSend: o
+                        })
+                    }
+                    setButtonState(o) {
+                        this.patchState({
+                            buttonDisabled: o
+                        })
+                    }
+                    setScroll(o) {
+                        this.patchState({
+                            scrollOn: o
+                        })
+                    }
+                }
+                return e.\u0275fac = function (o) {
+                    return new(o || e)(t.LFG(A.JH), t.LFG(u.wM))
+                }, e.\u0275prov = t.Yz7({
+                    token: e,
+                    factory: e.\u0275fac
+                }), e
+            })();
+            var Z = r(6562),
+                y = r(9295),
+                g = r(6646),
+                w = r(1339),
+                a = r(3158),
+                x = r(2673),
+                I = r(591),
+                f = r(2508),
+                M = r(1121),
+                B = r(9739),
+                k = r(9489);
+            let P = (() => {
+                class e extends S.m1 {
+                    constructor() {
+                        super({}), this.store = (0, t.f3M)(Q), this.env = (0, t.f3M)(M.d8), this.dialog = (0, t.f3M)(u._R), this.configProvider = (0, t.f3M)(u.FI), this.productsProvider = (0, t.f3M)(u.IA), this.roomsProvider = (0, t.f3M)(u.XZ), this.roomApi = (0, t.f3M)(u.Sz), this.translationsProvider = (0, t.f3M)(M.pp), this.viewModel$ = this.select(o => ({
+                            product: o.product,
+                            form: o.form,
+                            consentsForm: o.consentsForm,
+                            keys: o.formKeys,
+                            metadata: o.metadata,
+                            consentText: o.consentText,
+                            sent: o.sent,
+                            loading: o.loading
+                        })), this.setupView()
+                    }
+                    setupView() {
+                        (0, Z.a)([this.store.metadata$, this.roomsProvider.activeRoom$, this.productsProvider.activeProduct$, this.configProvider.companyConfig$.pipe((0, y.q)(1))]).pipe((0, v.R)(this.destroy$), (0, _.b)(([o, s, p, j]) => {
+                            this.patchState({
+                                metadata: o,
+                                room: s,
+                                config: j,
+                                product: p
+                            }), this.setupForm()
+                        })).subscribe(), this.store.actionBtnEmitter.pipe((0, v.R)(this.destroy$), (0, _.b)(() => this.sendQuote())).subscribe()
+                    }
+                    setupForm() {
+                        const {
+                            metadata: o
+                        } = this.get(), s = o?.isPostalCodeRequired ? [f.kI.required] : [], p = {
+                            name: new f.NI("", {
+                                validators: [f.kI.required]
+                            }),
+                            surname: new f.NI("", {
+                                validators: [f.kI.required]
+                            }),
+                            telephone: new f.NI("", {
+                                validators: [f.kI.required, B.Ab]
+                            }),
+                            email: new f.NI("", {
+                                validators: [f.kI.required, B.Q_]
+                            }),
+                            postalCode: new f.NI("", {
+                                validators: s
+                            }),
+                            additionalMessage: new f.NI("")
+                        }, j = {
+                            agreeTerms: new f.NI(!1, [f.kI.requiredTrue])
+                        };
+                        o?.disclaimer && (j.agreeCustomConsent = new f.NI(!1, o?.disclaimerRequired ? [f.kI.requiredTrue] : []));
+                        const tt = Object.keys(p),
+                            H = new f.cw(p),
+                            E = new f.nJ(j);
+                        (0, g.T)(H.statusChanges, E.statusChanges).pipe((0, v.R)(this.destroy$), (0, _.b)(() => {
+                            this.store.setButtonState("VALID" !== H.status || "VALID" !== E.status)
+                        })).subscribe(), this.store.setButtonState(!0), this.patchState({
+                            form: H,
+                            consentsForm: E,
+                            formKeys: tt,
+                            consentText: this.parseConsentText()
+                        })
+                    }
+                    parseConsentText(o = !0) {
+                        let s = this.translationsProvider.translate("quote.terms");
+                        s = o ? `<a href="${this.env.CrownCreteWebsite}/terms-conditions" target="_blank">${s}</a>` : s;
+                        let p = this.translationsProvider.translate("quote.policy");
+                        return p = o ? `<a href="${this.env.CrownCreteWebsite}/privacy-policy" target="_blank">${p}</a>` : p, this.translationsProvider.translate("quote.mainConsent", {
+                            terms: s,
+                            policy: p
+                        })
+                    }
+                    sendQuote() {
+                        const o = this.getQuoteObject();
+                        this.patchState({
+                            loading: !0
+                        }), this.store.setButtonState(!0), this.store.setScroll(!1), this.roomApi.sendQuote(o).pipe((0, w.g)(200), (0, v.R)(this.destroy$), (0, a.K)(() => (this.patchState({
+                            loading: !1
+                        }), this.store.setButtonState(!1), this.store.setScroll(!0), this.handleSendError().pipe((0, x.w)(() => I.E)))), (0, _.b)(() => {
+                            this.patchState({
+                                loading: !1,
+                                sent: !0
+                            }), this.store.setQuoteSend(!0), this.store.setButtonState(!1)
+                        })).subscribe()
+                    }
+                    handleSendError() {
+                        return this.dialog.open(k.I, {
+                            backdropClass: M.bj.darkOverlay,
+                            panelClass: M.bj.centerOverlay,
+                            data: {
+                                message: "quote.error"
+                            }
+                        }).beforeClosed()
+                    }
+                    getQuoteObject() {
+                        const {
+                            form: o,
+                            consentsForm: s,
+                            config: p,
+                            room: j,
+                            product: tt
+                        } = this.get(), H = o?.value, E = s?.value;
+                        return {
+                            account: p?.company?.id || "",
+                            ...H,
+                            agreeTerms: E.agreeTerms,
+                            agreeTermsText: this.parseConsentText(!1),
+                            currentRoom: j?.id || "",
+                            selectedProduct: tt?.id || "",
+                            agreeCustomConsent: !!E.agreeCustomConsent,
+                            agreeMarketing: !1,
+                            agreeMarketingText: ""
+                        }
+                    }
+                }
+                return e.\u0275fac = function (o) {
+                    return new(o || e)
+                }, e.\u0275prov = t.Yz7({
+                    token: e,
+                    factory: e.\u0275fac
+                }), e
+            })();
+            var z = r(1378),
+                G = r(2996),
+                K = r(8803),
+                Y = r(2960),
+                R = r(2499),
+                X = r(7931),
+                W = r(5551);
+            let d = (() => {
+                class e {
+                    constructor() {
+                        this.fields = ["name", "surname"]
+                    }
+                    transform(o, s) {
+                        return this.fields.includes(s) ? "required" !== o ? `quote.${o}` : "quote.required2" : `quote.${o}`
+                    }
+                }
+                return e.\u0275fac = function (o) {
+                    return new(o || e)
+                }, e.\u0275pipe = t.Yjl({
+                    name: "quoteErrorsFormatter",
+                    type: e,
+                    pure: !0,
+                    standalone: !0
+                }), e
+            })();
+            var J = r(852);
+
+            function n(e, l) {
+                if (1 & e && (t.TgZ(0, "div", 6), t._UZ(1, "picture", 7), t.TgZ(2, "div", 8)(3, "p", 9), t._uU(4), t.qZA()()()), 2 & e) {
+                    const o = t.oxw().ngrxLet;
+                    t.xp6(1), t.Q6J("imgSet", o.data.product.image || void 0), t.xp6(3), t.hij(" ", o.data.product.name.default, " ")
+                }
+            }
+
+            function c(e, l) {
+                1 & e && (t._UZ(0, "div", 13), t.ALo(1, "flTranslate")), 2 & e && t.Q6J("label", t.lcZ(1, 1, "sending") + "...")
+            }
+
+            function C(e, l) {
+                1 & e && (t.TgZ(0, "div", 14), t._UZ(1, "CrownCrete-icon", 15), t.TgZ(2, "h5", 16), t._uU(3), t.ALo(4, "flTranslate"), t.qZA()()), 2 & e && (t.xp6(3), t.hij(" ", t.lcZ(4, 1, "quote.sent"), " "))
+            }
+
+            function b(e, l) {
+                if (1 & e && (t.TgZ(0, "div", 10), t.YNc(1, c, 2, 3, "div", 11), t.YNc(2, C, 5, 3, "div", 12), t.qZA()), 2 & e) {
+                    const o = t.oxw().ngrxLet;
+                    t.xp6(1), t.Q6J("ngIf", o.data.loading), t.xp6(1), t.Q6J("ngIf", o.data.sent)
+                }
+            }
+
+            function U(e, l) {
+                if (1 & e && (t.ynx(0), t._uU(1), t.ALo(2, "flTranslate"), t.ALo(3, "flTranslate"), t.ALo(4, "quoteErrorsFormatter"), t.BQk()), 2 & e) {
+                    const o = t.oxw().$implicit,
+                        s = t.oxw(2).$implicit;
+                    t.xp6(1), t.AsE(" ", t.lcZ(2, 2, "quote." + s), " ", t.lcZ(3, 4, t.xi3(4, 6, o.key, s)), " ")
+                }
+            }
+
+            function O(e, l) {
+                if (1 & e && (t.ynx(0), t.YNc(1, U, 5, 9, "ng-container", 23), t.BQk()), 2 & e) {
+                    const o = t.oxw().ngIf;
+                    t.xp6(1), t.Q6J("ngIf", o.invalid && (o.dirty || o.touched))
+                }
+            }
+
+            function $(e, l) {
+                if (1 & e && (t.TgZ(0, "p", 22), t.YNc(1, O, 2, 1, "ng-container", 18), t.ALo(2, "keyvalue"), t.qZA()), 2 & e) {
+                    const o = l.ngIf;
+                    t.xp6(1), t.Q6J("ngForOf", t.lcZ(2, 1, o.errors))
+                }
+            }
+
+            function V(e, l) {
+                if (1 & e && (t.ynx(0), t.TgZ(1, "div", 19)(2, "p", 9), t._uU(3), t.ALo(4, "flTranslate"), t.TgZ(5, "span"), t._uU(6, "*"), t.qZA()(), t._UZ(7, "CrownCrete-input", 20), t.ALo(8, "flTranslate"), t.YNc(9, $, 3, 3, "p", 21), t.qZA(), t.BQk()), 2 & e) {
+                    const o = l.$implicit,
+                        s = l.last,
+                        p = t.oxw(2).ngrxLet;
+                    t.xp6(1), t.Q6J("CrownCreteForm", p.data.form)("key", o), t.xp6(2), t.hij(" ", t.lcZ(4, 7, "quote." + o), " "), t.xp6(4), t.s9C("placeholder", t.lcZ(8, 9, "quote." + o)), t.Q6J("formControlName", o)("type", s ? "textarea" : "text"), t.xp6(2), t.Q6J("ngIf", p.data.form.get(o))
+                }
+            }
+
+            function et(e, l) {
+                if (1 & e && (t.TgZ(0, "form", 17), t.NdJ("keydown.enter", function (s) {
+                        return s.stopImmediatePropagation()
+                    }), t.YNc(1, V, 10, 11, "ng-container", 18), t.qZA()), 2 & e) {
+                    const o = t.oxw().ngrxLet;
+                    t.Q6J("formGroup", o.data.form), t.xp6(1), t.Q6J("ngForOf", o.data.keys)
+                }
+            }
+
+            function rt(e, l) {
+                if (1 & e && (t.TgZ(0, "CrownCrete-checkbox", 28)(1, "span"), t._uU(2), t.qZA()()), 2 & e) {
+                    const o = t.oxw(2).ngrxLet;
+                    t.xp6(2), t.Oqu(null == o.data.metadata ? null : o.data.metadata.disclaimer)
+                }
+            }
+
+            function nt(e, l) {
+                if (1 & e && (t.TgZ(0, "form", 24), t.NdJ("keydown.enter", function (s) {
+                        return s.stopImmediatePropagation()
+                    }), t.TgZ(1, "CrownCrete-checkbox", 25), t._UZ(2, "span", 26), t.ALo(3, "safeHtml"), t.qZA(), t.YNc(4, rt, 3, 1, "CrownCrete-checkbox", 27), t.qZA()), 2 & e) {
+                    const o = t.oxw().ngrxLet;
+                    t.Q6J("formGroup", o.data.consentsForm), t.xp6(2), t.Q6J("innerHTML", t.lcZ(3, 3, o.data.consentText || ""), t.oJD), t.xp6(2), t.Q6J("ngIf", !!o.data.consentsForm.get("agreeCustomConsent"))
+                }
+            }
+
+            function at(e, l) {
+                if (1 & e && (t.ynx(0), t.YNc(1, n, 5, 2, "div", 1), t.TgZ(2, "div", 2), t.YNc(3, b, 3, 2, "div", 3), t.YNc(4, et, 2, 2, "form", 4), t.YNc(5, nt, 5, 5, "form", 5), t.qZA(), t.BQk()), 2 & e) {
+                    const o = l.ngrxLet;
+                    t.xp6(1), t.Q6J("ngIf", o.data.product && !o.data.loading && !o.data.sent), t.xp6(2), t.Q6J("ngIf", o.data.loading || o.data.sent), t.xp6(1), t.Q6J("ngIf", o.data.form), t.xp6(1), t.Q6J("ngIf", o.data.consentsForm)
+                }
+            }
+            const it = function (e) {
+                return {
+                    data: e
+                }
+            };
+            let lt = (() => {
+                class e {
+                    constructor() {
+                        this.store = (0, t.f3M)(P), this.viewModel$ = this.store.viewModel$
+                    }
+                }
+                return e.\u0275fac = function (o) {
+                    return new(o || e)
+                }, e.\u0275cmp = t.Xpm({
+                    type: e,
+                    selectors: [
+                        ["CrownCrete-quote-standard"]
+                    ],
+                    hostAttrs: [1, "CrownCrete-quote-standard"],
+                    standalone: !0,
+                    features: [t._Bn([P]), t.jDz],
+                    decls: 1,
+                    vars: 3,
+                    consts: [
+                        [4, "ngrxLet"],
+                        ["class", "quote-product-details", 4, "ngIf"],
+                        [1, "quote-form-wrapper"],
+                        ["class", "cover-wrapper", 4, "ngIf"],
+                        ["class", "quote-text-fields", 3, "formGroup", "keydown.enter", 4, "ngIf"],
+                        ["class", "quote-consents", 3, "formGroup", "keydown.enter", 4, "ngIf"],
+                        [1, "quote-product-details"],
+                        ["CrownCrete-picture", "", 1, "contain", "aspect-ratio-1-1", 3, "imgSet"],
+                        [1, "quote-product-info"],
+                        [1, "CrownCrete-caption", "CrownCrete-semi-regular"],
+                        [1, "cover-wrapper"],
+                        ["CrownCrete-loader", "", 3, "label", 4, "ngIf"],
+                        ["class", "sent-message", 4, "ngIf"],
+                        ["CrownCrete-loader", "", 3, "label"],
+                        [1, "sent-message"],
+                        ["name", "fl_info_s"],
+                        [1, "CrownCrete-semi-bold", "CrownCrete-text-center"],
+                        [1, "quote-text-fields", 3, "formGroup", "keydown.enter"],
+                        [4, "ngFor", "ngForOf"],
+                        [1, "CrownCrete-field", 3, "CrownCreteForm", "key"],
+                        [1, "fl-mr-12", "reverse", 3, "formControlName", "type", "placeholder"],
+                        ["class", "field-error CrownCrete-caption", 4, "ngIf"],
+                        [1, "field-error", "CrownCrete-caption"],
+                        [4, "ngIf"],
+                        [1, "quote-consents", 3, "formGroup", "keydown.enter"],
+                        ["formControlName", "agreeTerms", 1, "align-checkbox-end"],
+                        [3, "innerHTML"],
+                        ["class", "align-checkbox-end", "formControlName", "agreeCustomConsent", 4, "ngIf"],
+                        ["formControlName", "agreeCustomConsent", 1, "align-checkbox-end"]
+                    ],
+                    template: function (o, s) {
+                        1 & o && t.YNc(0, at, 6, 4, "ng-container", 0), 2 & o && t.Q6J("ngrxLet", t.VKq(1, it, s.viewModel$))
+                    },
+                    dependencies: [m.ez, m.sg, m.O5, m.Nd, T._N, T.eJ, f.UX, f._Y, f.JJ, f.JL, f.sg, f.u, z._x, i.N, J.X, G.i, K.a, Y.zX, R.i, X.g, W.K, d],
+                    styles: [".CrownCrete-quote-standard .quote-product-details{padding:var(--fl-y-padding-xs) var(--fl-x-padding);background-color:var(--fl-bg100);display:flex;margin:0 calc(var(--fl-x-padding) * -1) var(--fl-y-padding);border-bottom:1px solid var(--fl-border-clr);border-top:1px solid var(--fl-border-clr)}.CrownCrete-quote-standard .quote-product-details picture{width:3.5rem;min-width:3.5rem;border-radius:8px}.CrownCrete-quote-standard .quote-product-details .quote-product-info{padding-left:var(--fl-y-padding);display:flex;align-items:center}@media (min-width: 768px){.CrownCrete-quote-standard .quote-product-details{padding:var(--fl-y-padding-xs) var(--fl-x-padding-md);margin:0 calc(var(--fl-x-padding-md) * -1) var(--fl-y-padding)}}.CrownCrete-quote-standard .quote-form-wrapper{position:relative}.CrownCrete-quote-standard .quote-form-wrapper .cover-wrapper{position:absolute;z-index:2;inset:0;display:flex;justify-content:center;align-items:center;background-color:var(--fl-bg)}.CrownCrete-quote-standard .quote-form-wrapper .cover-wrapper .CrownCrete-loader,.CrownCrete-quote-standard .quote-form-wrapper .cover-wrapper CrownCrete-icon{width:150px;height:150px}.CrownCrete-quote-standard .quote-form-wrapper .cover-wrapper CrownCrete-icon{color:var(--fl-primary);margin-bottom:var(--fl-y-padding-md)}.CrownCrete-quote-standard form .quote-field p span{display:none}.CrownCrete-quote-standard form .quote-field.CrownCrete-field-required p span{display:inline;color:var(--fl-error-primary)}.CrownCrete-quote-standard form .quote-field .field-error{margin-top:.125rem;color:var(--fl-error-primary)}.CrownCrete-quote-standard .quote-text-fields .CrownCrete-field{margin-bottom:var(--fl-y-padding)}.CrownCrete-quote-standard .quote-consents .CrownCrete-checkbox{justify-content:flex-start;margin-bottom:var(--fl-y-padding);align-items:flex-start}.CrownCrete-quote-standard .quote-consents .CrownCrete-checkbox span{font-size:.75rem}.CrownCrete-quote-standard .quote-consents .CrownCrete-checkbox .CrownCrete-checkbox-label{max-width:100%}.CrownCrete-quote-standard .quote-consents .CrownCrete-checkbox p{white-space:break-spaces;overflow:initial;line-height:1rem}.CrownCrete-quote-standard .quote-consents .CrownCrete-checkbox p a{color:var(--fl-primary)}\n"],
+                    encapsulation: 2,
+                    changeDetection: 0
+                }), e
+            })();
+
+            function st(e, l) {
+                if (1 & e && (t._UZ(0, "iframe", 3, 4), t.ALo(2, "safeUrl")), 2 & e) {
+                    const o = t.oxw(3).ngIf;
+                    t.Q6J("src", t.lcZ(2, 1, o.iframeUrl), t.uOi)
+                }
+            }
+
+            function ct(e, l) {
+                if (1 & e && (t.ynx(0), t.YNc(1, st, 3, 3, "iframe", 2), t.BQk()), 2 & e) {
+                    const o = t.oxw(2).ngIf;
+                    t.xp6(1), t.Q6J("ngIf", o.iframeUrl)
+                }
+            }
+
+            function dt(e, l) {
+                if (1 & e && (t._UZ(0, "div", 5), t.ALo(1, "safeHtml")), 2 & e) {
+                    const o = t.oxw(2).ngIf;
+                    t.Q6J("outerHTML", t.lcZ(1, 1, o.iframeUrl), t.oJD)
+                }
+            }
+
+            function ut(e, l) {
+                if (1 & e && (t.ynx(0), t.YNc(1, ct, 2, 1, "ng-container", 0), t.YNc(2, dt, 2, 3, "div", 1), t.BQk()), 2 & e) {
+                    const o = t.oxw().ngIf;
+                    t.xp6(1), t.Q6J("ngIf", !o.renderIframeUrl), t.xp6(1), t.Q6J("ngIf", o.renderIframeUrl)
+                }
+            }
+
+            function ft(e, l) {
+                if (1 & e && (t.ynx(0), t.YNc(1, ut, 3, 2, "ng-container", 0), t.BQk()), 2 & e) {
+                    const o = l.ngIf;
+                    t.xp6(1), t.Q6J("ngIf", !!o.iframeUrl)
+                }
+            }
+            let pt = (() => {
+                class e {
+                    constructor() {
+                        this.store = (0, t.f3M)(Q), this.viewData$ = this.store.viewData$
+                    }
+                }
+                return e.\u0275fac = function (o) {
+                    return new(o || e)
+                }, e.\u0275cmp = t.Xpm({
+                    type: e,
+                    selectors: [
+                        ["CrownCrete-quote-iframe"]
+                    ],
+                    hostAttrs: [1, "CrownCrete-quote-iframe"],
+                    standalone: !0,
+                    features: [t.jDz],
+                    decls: 2,
+                    vars: 3,
+                    consts: [
+                        [4, "ngIf"],
+                        [3, "outerHTML", 4, "ngIf"],
+                        [3, "src", 4, "ngIf"],
+                        [3, "src"],
+                        ["iframeEl", ""],
+                        [3, "outerHTML"]
+                    ],
+                    template: function (o, s) {
+                        1 & o && (t.YNc(0, ft, 2, 1, "ng-container", 0), t.ALo(1, "async")), 2 & o && t.Q6J("ngIf", t.lcZ(1, 1, s.viewData$))
+                    },
+                    dependencies: [m.ez, m.O5, m.Ov, Y.Q8, Y.zX],
+                    styles: [".CrownCrete-quote-iframe{display:flex;flex-direction:column;min-width:30vw;min-height:60dvh;height:100%;padding-top:var(--fl-y-padding)}.CrownCrete-quote-iframe iframe{border:0;flex:1}\n"],
+                    encapsulation: 2,
+                    changeDetection: 0
+                }), e
+            })();
+            var ot = r(7258);
+
+            function mt(e, l) {
+                if (1 & e && (t.ynx(0), t._uU(1), t.ALo(2, "flTranslate"), t.BQk()), 2 & e) {
+                    const o = t.oxw().ngIf;
+                    t.xp6(1), t.hij(" ", t.lcZ(2, 1, o.title), " ")
+                }
+            }
+
+            function gt(e, l) {
+                1 & e && t._UZ(0, "CrownCrete-quote-standard")
+            }
+
+            function ht(e, l) {
+                1 & e && t._UZ(0, "CrownCrete-quote-iframe")
+            }
+
+            function vt(e, l) {
+                if (1 & e) {
+                    const o = t.EpF();
+                    t.ynx(0), t.TgZ(1, "div", 1), t.YNc(2, mt, 3, 3, "ng-container", 0), t.qZA(), t.TgZ(3, "section", 2)(4, "div", 3), t.YNc(5, gt, 1, 0, "CrownCrete-quote-standard", 4), t.YNc(6, ht, 1, 0, "CrownCrete-quote-iframe", 4), t.qZA()(), t.TgZ(7, "div", 5)(8, "div", 6)(9, "button", 7), t.NdJ("click", function () {
+                        t.CHM(o);
+                        const p = t.oxw();
+                        return t.KtG(p.actionBtnClick())
+                    }), t._uU(10), t.ALo(11, "flTranslate"), t.qZA()()(), t.BQk()
+                }
+                if (2 & e) {
+                    const o = l.ngIf,
+                        s = t.oxw();
+                    t.xp6(2), t.Q6J("ngIf", o.title), t.xp6(1), t.ekj("no-scroll", !o.scrollOn), t.xp6(1), t.Q6J("ngSwitch", o.view), t.xp6(1), t.Q6J("ngSwitchCase", s.quoteType.standard), t.xp6(1), t.Q6J("ngSwitchCase", s.quoteType.iframe), t.xp6(3), t.Q6J("disabled", o.buttonDisabled), t.xp6(1), t.hij(" ", t.lcZ(11, 8, o.buttonLabel), " ")
+                }
+            }
+            let xt = (() => {
+                class e extends F.YU {
+                    constructor() {
+                        super(), this.store = (0, t.f3M)(Q), this.cdr = (0, t.f3M)(t.sBO), this.viewData$ = this.store.viewData$, this.quoteType = h.Q_, this.isStandardQuote = !0, this.watchQuoteType()
+                    }
+                    get standardQuoteCls() {
+                        return this.isStandardQuote
+                    }
+                    actionBtnClick() {
+                        this.store.actionBtnClick()
+                    }
+                    watchQuoteType() {
+                        this.store.isStandardQuote$.pipe((0, v.R)(this.destroyed), (0, _.b)(o => {
+                            this.isStandardQuote = o, this.cdr.markForCheck()
+                        })).subscribe()
+                    }
+                }
+                return e.\u0275fac = function (o) {
+                    return new(o || e)
+                }, e.\u0275cmp = t.Xpm({
+                    type: e,
+                    selectors: [
+                        ["CrownCrete-quote-dialog"]
+                    ],
+                    hostAttrs: [1, "CrownCrete-quote-dialog"],
+                    hostVars: 2,
+                    hostBindings: function (o, s) {
+                        2 & o && t.ekj("standard-quote", s.standardQuoteCls)
+                    },
+                    standalone: !0,
+                    features: [t._Bn([Q]), t.qOj, t.jDz],
+                    decls: 2,
+                    vars: 3,
+                    consts: [
+                        [4, "ngIf"],
+                        ["CrownCrete-dialog-header", ""],
+                        ["CrownCrete-dialog-content", ""],
+                        [1, "quote-view", 3, "ngSwitch"],
+                        [4, "ngSwitchCase"],
+                        ["CrownCrete-dialog-actions", ""],
+                        [1, "quote-actions"],
+                        ["CrownCrete-button", "", 1, "primary", "big", 3, "disabled", "click"]
+                    ],
+                    template: function (o, s) {
+                        1 & o && (t.YNc(0, vt, 12, 10, "ng-container", 0), t.ALo(1, "async")), 2 & o && t.Q6J("ngIf", t.lcZ(1, 1, s.viewData$))
+                    },
+                    dependencies: [m.ez, m.O5, m.RF, m.n9, m.Ov, A.wC, ot.VA, ot.hE, i.N, J.X, D.A, L.c, T._N, pt, lt],
+                    styles: [".CrownCrete-quote-dialog{display:flex;flex-direction:column;flex:1;height:100%;background-color:var(--fl-bg);border-radius:var(--fl-border-radius)}@media (min-width: 768px){.CrownCrete-quote-dialog.standard-quote{max-height:700px;max-width:540px}}.CrownCrete-quote-dialog section{display:flex;flex-direction:column;justify-content:space-between;padding-top:0}.CrownCrete-quote-dialog section .quote-view{flex:1}.CrownCrete-quote-dialog section.no-scroll{overflow:hidden}.CrownCrete-quote-dialog .quote-actions{margin:var(--fl-y-padding-md) 0 0;display:flex;justify-content:center}.CrownCrete-quote-dialog .quote-actions button{flex:1;max-width:346px}\n"],
+                    encapsulation: 2,
+                    changeDetection: 0
+                }), e
+            })()
+        }
+    }
+]);
