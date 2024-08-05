@@ -22,7 +22,7 @@
                         
                     };
                     if ('serviceWorker' in navigator) {
-                        navigator.serviceWorker.register('atootikhos3/apc.floori.io/service-worker.js').then(function(registration) {
+                        navigator.serviceWorker.register('/atootikhos3/apc.floori.io/service-worker.js').then(function(registration) {
                             console.log('Service Worker registered with scope:', registration.scope);
                         }).catch(function(error) {
                             console.error('Service Worker registration failed:', error);
