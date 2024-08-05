@@ -6914,7 +6914,7 @@
                             Te = {
                                 company: {
                                     vendorId: "api.server.floori.io/new-floori/v3/studio/visualization/vendor-id/:subdomain",
-                                    config: "api.server.floori.io/new-floori/v3/studio/visualization/config"
+                                    config: "Atootikhos/atootikhos3/blob/main/api.server.floori.io/new-floori/v3/studio/visualization/config"
                                 },
                                 rooms: {
                                     baseRooms: "api.server.floori.io/new-floori/v3/studio/room",
