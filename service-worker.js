@@ -31,7 +31,7 @@ self.addEventListener('fetch', event => {
                         statusText: 'OK',
                         headers: {
                             'Content-Type': 'application/json',
-                            'X-Dummy-URL': 'https://crowncrete.com.au/config' // Custom header to indicate the dummy URL
+                            'X-Dummy-URL': 'https://atootikhos.github.io/atootikhos3/apc.floori.io/config' // Custom header to indicate the dummy URL
                         }
                     });
 
