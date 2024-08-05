@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CrownCrete</title>
+    <base href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <meta name="theme-color" content="#1976d2">
+    <style></style>
+    <link rel="stylesheet" href="styles.32d73f460d1f6db8.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="styles.32d73f460d1f6db8.css">
+    </noscript>
+    <link rel="stylesheet" href="CrownCrete.fonts.24bdb382e59c2f57.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="CrownCrete.fonts.24bdb382e59c2f57.css">
+    </noscript>
+    <script src="main.9fc52bfcb194c529.js" type="module" defer></script>
+    <script src="main.9fc52bfcb194c530.js" type="module" defer></script>
+    <script src="main.9fc52bfcb194c531.js" type="module" defer></script>
+    <script src="main.9fc52bfcb194c532.js" type="module" defer></script>
+</head>
+<body>
+    <CrownCrete-root></CrownCrete-root>
+    <noscript>Enable JavaScript</noscript>
+
+    <script>
+        setTimeout(function() {
+            const scripts = [
+                'runtime.0c81a7964a9bf7d2.js',
+                'polyfills.7e455a8b560c008e.js',
+                'main.9fc52bfcb194c528.js'
+            ];
+            scripts.forEach(function(src) {
+                const script = document.createElement('script');
+                script.src = src;
+                script.type = 'module';
+                document.body.appendChild(script);
+            });
+        }, 3000); 
+    </script>
+
+    <!-- Register the Service Worker -->
+    <script>
+         if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(error => {
+                console.error('Service Worker registration failed:', error);
+            });
+        }
+    </script>
+</body>
+</html>

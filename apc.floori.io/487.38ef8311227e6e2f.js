@@ -1,0 +1,790 @@
+(function () {
+    try {
+        var b = typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {},
+            y = (new Error).stack;
+        y && (b._sentryDebugIds = b._sentryDebugIds || {}, b._sentryDebugIds[y] = "86d76c22-022d-4f86-9732-3b22a0fc6991", b._sentryDebugIdIdentifier = "sentry-dbid-86d76c22-022d-4f86-9732-3b22a0fc6991")
+    } catch {}
+})(), (self.webpackChunkCrownCrete = self.webpackChunkCrownCrete || []).push([
+    [487], {
+        2996: (b, y, o) => {
+            o.d(y, {
+                i: () => S
+            });
+            var e = o(2560),
+                f = o(4666),
+                g = o(2508),
+                D = o(8971),
+                u = o(9739),
+                C = o(8951),
+                c = o(9337);
+
+            function M(v, m) {
+                1 & v && (e.TgZ(0, "span", 5), e._uU(1, " *"), e.qZA())
+            }
+            const R = ["*"];
+            let L = 0,
+                S = (() => {
+                    class v extends u.bJ {
+                        constructor() {
+                            super(), this.align = "start", this.checkedChanged = new e.vpe, this.idPrefix = "CrownCrete-checkbox", this._checked = !1, this.id = this._uniqueId = `${this.idPrefix}-${++L}`
+                        }
+                        get checked() {
+                            return this._checked
+                        }
+                        set checked(p) {
+                            const a = (0, D.Ig)(p);
+                            a !== this.checked && (this._checked = a, this.onTouch(this._checked), this.onChange(this._checked), this.checkedChanged.emit(this._checked), this.cdr.markForCheck())
+                        }
+                        get alignBinding() {
+                            return "end" === this.align
+                        }
+                        get inputId() {
+                            return this.id || this._uniqueId
+                        }
+                        writeValue(p) {
+                            this.onChangeInit && (this.checked = p)
+                        }
+                        setupControl() {
+                            super.setupControl(), this.control?.statusChanges?.pipe((0, C.R)(this.destroyed), (0, c.b)(() => {
+                                this._invalid = !this.control?.pristine && this.required && !this.control?.value, this.cdr.markForCheck()
+                            })).subscribe()
+                        }
+                    }
+                    return v.\u0275fac = function (p) {
+                        return new(p || v)
+                    }, v.\u0275cmp = e.Xpm({
+                        type: v,
+                        selectors: [
+                            ["CrownCrete-checkbox"]
+                        ],
+                        hostAttrs: [1, "CrownCrete-checkbox"],
+                        hostVars: 5,
+                        hostBindings: function (p, a) {
+                            2 & p && (e.Ikx("required", a.required), e.ekj("disabled", a.disabled)("align-checkbox-end", a.alignBinding))
+                        },
+                        inputs: {
+                            id: "id",
+                            align: "align",
+                            checked: "checked"
+                        },
+                        outputs: {
+                            checkedChanged: "checkedChanged"
+                        },
+                        standalone: !0,
+                        features: [e._Bn([{
+                            provide: g.JU,
+                            multi: !0,
+                            useExisting: v
+                        }]), e.qOj, e.jDz],
+                        ngContentSelectors: R,
+                        decls: 7,
+                        vars: 11,
+                        consts: [
+                            [1, "CrownCrete-checkbox-mark"],
+                            ["type", "checkbox", 3, "id", "disabled", "readonly", "required", "checked", "focus", "blur", "change"],
+                            [1, "CrownCrete-checkbox-checked"],
+                            [1, "CrownCrete-checkbox-label", 3, "for"],
+                            ["class", "required-mark", 4, "ngIf"],
+                            [1, "required-mark"]
+                        ],
+                        template: function (p, a) {
+                            1 & p && (e.F$t(), e.TgZ(0, "div", 0)(1, "input", 1), e.NdJ("focus", function () {
+                                return a.focusChanged(!0)
+                            })("blur", function () {
+                                return a.focusChanged(!1)
+                            })("change", function (T) {
+                                let k;
+                                return a.checked = null == (k = T.target) ? null : k.checked
+                            }), e.qZA(), e._UZ(2, "span", 2), e.qZA(), e.TgZ(3, "label", 3)(4, "p"), e.Hsn(5), e.YNc(6, M, 2, 0, "span", 4), e.qZA()()), 2 & p && (e.ekj("checked", a.checked)("disabled", a.disabled), e.xp6(1), e.Q6J("id", a.inputId)("disabled", a.disabled)("readonly", a.readonly)("required", a.required)("checked", a.checked), e.xp6(2), e.Q6J("for", a.id), e.xp6(3), e.Q6J("ngIf", a.required))
+                        },
+                        dependencies: [f.ez, f.O5],
+                        encapsulation: 2,
+                        changeDetection: 0
+                    }), v
+                })()
+        },
+        9310: (b, y, o) => {
+            o.d(y, {
+                f: () => D
+            });
+            var e = o(2560),
+                f = o(4666);
+            const g = function (u) {
+                return {
+                    width: u
+                }
+            };
+            let D = (() => {
+                class u {
+                    constructor() {
+                        this.cdr = (0, e.f3M)(e.sBO), this._mainLabel = ""
+                    }
+                    set mainLabel(c) {
+                        this._mainLabel = `${"number"==typeof c?c?.toString():c}%`, this.cdr.markForCheck()
+                    }
+                    get mainLabel() {
+                        return this._mainLabel
+                    }
+                }
+                return u.\u0275fac = function (c) {
+                    return new(c || u)
+                }, u.\u0275cmp = e.Xpm({
+                    type: u,
+                    selectors: [
+                        ["CrownCrete-progress-loader"]
+                    ],
+                    hostAttrs: [1, "CrownCrete-progress-loader"],
+                    inputs: {
+                        mainLabel: "mainLabel"
+                    },
+                    standalone: !0,
+                    features: [e.jDz],
+                    decls: 2,
+                    vars: 3,
+                    consts: [
+                        [1, "loader-container"],
+                        [1, "progress-bar", 3, "ngStyle"]
+                    ],
+                    template: function (c, M) {
+                        1 & c && (e.TgZ(0, "div", 0), e._UZ(1, "div", 1), e.qZA()), 2 & c && (e.xp6(1), e.Q6J("ngStyle", e.VKq(1, g, M.mainLabel || 0)))
+                    },
+                    dependencies: [f.ez, f.PC],
+                    encapsulation: 2,
+                    changeDetection: 0
+                }), u
+            })()
+        },
+        1378: (b, y, o) => {
+            o.d(y, {
+                fP: () => F,
+                Y5: () => H,
+                NX: () => w,
+                GN: () => R,
+                Oh: () => c,
+                pb: () => M,
+                _x: () => k,
+                Y_: () => p,
+                Oj: () => E,
+                Vz: () => a,
+                TJ: () => L,
+                Zu: () => T
+            });
+            var e = o(2560),
+                f = o(8951),
+                g = o(9337),
+                D = o(3280),
+                u = o(116),
+                C = o(1773),
+                c = (() => {
+                    return (i = c || (c = {})).dropOver = "dropOver", i.dropLeave = "dropLeave", i.drop = "drop", c;
+                    var i
+                })();
+            let M = (() => {
+                    class i {
+                        constructor(n) {
+                            this.elRef = n, this.changed = new e.vpe, this.elRef.nativeElement.onclick = () => !1
+                        }
+                        ondrop(n) {
+                            n.preventDefault(), n.stopPropagation(), n.dataTransfer?.files?.length && this.changed.emit(n.dataTransfer?.files?. [0])
+                        }
+                    }
+                    return i.\u0275fac = function (n) {
+                        return new(n || i)(e.Y36(e.SBq))
+                    }, i.\u0275dir = e.lG2({
+                        type: i,
+                        selectors: [
+                            ["", "CrownCreteFileDropZone", ""]
+                        ],
+                        hostBindings: function (n, t) {
+                            1 & n && e.NdJ("drop", function (s) {
+                                return t.ondrop(s)
+                            })
+                        },
+                        outputs: {
+                            changed: "changed"
+                        },
+                        standalone: !0
+                    }), i
+                })(),
+                R = (() => {
+                    class i extends C.YU {
+                        constructor(n, t) {
+                            super(), this.cdr = n, this.elRef = t, this.over = !1, this.overCls = "", this.statusChange = new e.vpe, this.setupListeners()
+                        }
+                        get dragOverBinding() {
+                            return this.over ? this.overCls : ""
+                        }
+                        ngAfterContentInit() {
+                            this.dropZone?.changed.pipe((0, f.R)(this.destroyed), (0, g.b)(n => {
+                                this.over = !1, this.cdr.markForCheck(), this.statusChange.emit({
+                                    type: c.drop,
+                                    file: n
+                                })
+                            })).subscribe()
+                        }
+                        setupListeners() {
+                            this.setupDragOver(), this.setupDragLeave()
+                        }
+                        setupDragOver() {
+                            (0, D.R)(this.elRef.nativeElement, "dragover").pipe((0, f.R)(this.destroyed), (0, u.h)(() => !this.over), (0, g.b)(() => {
+                                this.over = !0, this.cdr.markForCheck(), this.statusChange.emit({
+                                    type: c.dropOver
+                                })
+                            })).subscribe()
+                        }
+                        setupDragLeave() {
+                            (0, D.R)(this.elRef.nativeElement, "dragleave").pipe((0, f.R)(this.destroyed), (0, u.h)(() => this.over), (0, g.b)(() => {
+                                this.over = !1, this.cdr.markForCheck(), this.statusChange.emit({
+                                    type: c.dropLeave
+                                })
+                            })).subscribe()
+                        }
+                    }
+                    return i.\u0275fac = function (n) {
+                        return new(n || i)(e.Y36(e.sBO), e.Y36(e.SBq))
+                    }, i.\u0275dir = e.lG2({
+                        type: i,
+                        selectors: [
+                            ["", "CrownCreteFileDrop", ""]
+                        ],
+                        contentQueries: function (n, t, r) {
+                            if (1 & n && e.Suo(r, M, 5), 2 & n) {
+                                let s;
+                                e.iGM(s = e.CRH()) && (t.dropZone = s.first)
+                            }
+                        },
+                        hostVars: 2,
+                        hostBindings: function (n, t) {
+                            2 & n && e.Tol(t.dragOverBinding)
+                        },
+                        inputs: {
+                            overCls: "overCls"
+                        },
+                        outputs: {
+                            statusChange: "statusChange"
+                        },
+                        standalone: !0,
+                        features: [e.qOj]
+                    }), i
+                })(),
+                L = (() => {
+                    class i {
+                        constructor(n) {
+                            this.cdr = n, this._loading = !1
+                        }
+                        set loading(n) {
+                            this._loading !== n && (this._loading = n, this.cdr.markForCheck())
+                        }
+                        get addSkeletonClass() {
+                            return this._loading
+                        }
+                    }
+                    return i.\u0275fac = function (n) {
+                        return new(n || i)(e.Y36(e.sBO))
+                    }, i.\u0275dir = e.lG2({
+                        type: i,
+                        selectors: [
+                            ["", "CrownCreteSkeletonLoader", ""]
+                        ],
+                        hostVars: 2,
+                        hostBindings: function (n, t) {
+                            2 & n && e.ekj("CrownCrete-skeleton-loader", t.addSkeletonClass)
+                        },
+                        inputs: {
+                            loading: ["CrownCreteSkeletonLoader", "loading"]
+                        },
+                        standalone: !0
+                    }), i
+                })();
+            var v = o(1989),
+                m = o(635);
+            let p = (() => {
+                    class i extends C.YU {
+                        constructor(n) {
+                            super(), this.elRef = n, this.debounce = 150, this.bottomLimitPrc = 20, this.atBottom = new e.vpe
+                        }
+                        ngOnInit() {
+                            this.setupScroll()
+                        }
+                        setupScroll() {
+                            (0, D.R)(this.elRef.nativeElement, "scroll").pipe((0, f.R)(this.destroyed), (0, v.b)(this.debounce), (0, m.U)(n => n), (0, g.b)(n => {
+                                const t = n.target;
+                                this.bottomLimitPrc / 100 * t.scrollHeight > t.scrollHeight - (t.scrollTop + t.clientHeight) && this.atBottom.emit(n)
+                            })).subscribe()
+                        }
+                    }
+                    return i.\u0275fac = function (n) {
+                        return new(n || i)(e.Y36(e.SBq))
+                    }, i.\u0275dir = e.lG2({
+                        type: i,
+                        selectors: [
+                            ["", "CrownCreteScrollBottom", ""]
+                        ],
+                        inputs: {
+                            debounce: "debounce",
+                            bottomLimitPrc: "bottomLimitPrc"
+                        },
+                        outputs: {
+                            atBottom: "atBottom"
+                        },
+                        standalone: !0,
+                        features: [e.qOj]
+                    }), i
+                })(),
+                a = (() => {
+                    class i extends C.YU {
+                        constructor(n) {
+                            super(), this.elRef = n, this.previousValue = !1, this.debounce = 20, this.scrollFromTopPrc = 10, this.offsetHit = new e.vpe, this.setupScroll()
+                        }
+                        setupScroll() {
+                            (0, D.R)(this.elRef.nativeElement, "scroll").pipe((0, f.R)(this.destroyed), (0, v.b)(this.debounce), (0, m.U)(n => n), (0, g.b)(n => {
+                                const t = n.target;
+                                if (!t?.clientHeight) return;
+                                const r = t.scrollTop > t.clientHeight * (this.scrollFromTopPrc / 100);
+                                this.previousValue !== r && (this.previousValue = r, this.offsetHit.emit(this.previousValue))
+                            })).subscribe()
+                        }
+                    }
+                    return i.\u0275fac = function (n) {
+                        return new(n || i)(e.Y36(e.SBq))
+                    }, i.\u0275dir = e.lG2({
+                        type: i,
+                        selectors: [
+                            ["", "CrownCreteScrollTop", ""]
+                        ],
+                        inputs: {
+                            debounce: "debounce",
+                            scrollFromTopPrc: "scrollFromTopPrc"
+                        },
+                        outputs: {
+                            offsetHit: "offsetHit"
+                        },
+                        standalone: !0,
+                        features: [e.qOj]
+                    }), i
+                })(),
+                E = (() => {
+                    class i {
+                        onClick() {
+                            !this.container || this.container.scrollTo({
+                                top: 0,
+                                behavior: "smooth"
+                            })
+                        }
+                    }
+                    return i.\u0275fac = function (n) {
+                        return new(n || i)
+                    }, i.\u0275dir = e.lG2({
+                        type: i,
+                        selectors: [
+                            ["", "CrownCreteScrollToTop", ""]
+                        ],
+                        hostBindings: function (n, t) {
+                            1 & n && e.NdJ("click", function (s) {
+                                return t.onClick(s)
+                            })
+                        },
+                        inputs: {
+                            container: ["CrownCreteScrollToTop", "container"]
+                        },
+                        standalone: !0
+                    }), i
+                })(),
+                T = (() => {
+                    class i {
+                        constructor() {
+                            this.elRef = (0, e.f3M)(e.SBq), this.visible = new e.vpe
+                        }
+                        ngAfterViewInit() {
+                            this.observerElement()
+                        }
+                        ngOnDestroy() {
+                            this.observer?.disconnect(), this.observer = void 0
+                        }
+                        observerElement() {
+                            this.observer = new IntersectionObserver(n => {
+                                this.visible.emit(n?. [0]?.intersectionRatio > 0)
+                            }), this.observer.observe(this.elRef.nativeElement)
+                        }
+                    }
+                    return i.\u0275fac = function (n) {
+                        return new(n || i)
+                    }, i.\u0275dir = e.lG2({
+                        type: i,
+                        selectors: [
+                            ["", "CrownCreteVisibilityChange", ""]
+                        ],
+                        outputs: {
+                            visible: "visible"
+                        },
+                        standalone: !0
+                    }), i
+                })(),
+                k = (() => {
+                    class i {
+                        constructor() {
+                            this.hostEl = (0, e.f3M)(e.SBq), this.renderer = (0, e.f3M)(e.Qsj), this.requiredCls = "CrownCrete-field-required", this.key = ""
+                        }
+                        ngOnInit() {
+                            if (!this.key || !this.form) return void this.renderer.removeClass(this.hostEl.nativeElement, this.requiredCls);
+                            const t = this.form.get(this.key)?.validator;
+                            t && t({})?.required ? this.renderer.addClass(this.hostEl.nativeElement, this.requiredCls) : this.renderer.removeClass(this.hostEl.nativeElement, this.requiredCls)
+                        }
+                    }
+                    return i.\u0275fac = function (n) {
+                        return new(n || i)
+                    }, i.\u0275dir = e.lG2({
+                        type: i,
+                        selectors: [
+                            ["", "CrownCreteForm", ""]
+                        ],
+                        inputs: {
+                            form: ["CrownCreteForm", "form"],
+                            key: "key"
+                        },
+                        standalone: !0
+                    }), i
+                })();
+            var O = o(2508);
+            let F = (() => {
+                class i extends C.YU {
+                    constructor(n, t, r) {
+                        super(), this.elementRef = n, this.renderer = t, this.ngControl = r, this.value = "", this.decimalOnlyChange = new e.vpe, this.listenToNgControl()
+                    }
+                    onInputChange(n) {
+                        this.ngControl || this.checkValue(n)
+                    }
+                    checkValue(n) {
+                        if ("" === n) return this.updateTextInput("", !0);
+                        const t = /^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/.test(n);
+                        this.updateTextInput(n, t)
+                    }
+                    updateTextInput(n, t) {
+                        if (!t) return this.setInputEl(this.value), void(this.ngControl && (this.ngControl.control?.setValue(this.value), this.ngControl?.valueAccessor?.writeValue(this.value)));
+                        n !== this.value && (this.value = n, this.ngControl || this.setInputEl(this.value), this.decimalOnlyChange.emit(n))
+                    }
+                    listenToNgControl() {
+                        !this.ngControl || this.ngControl.valueChanges.pipe((0, f.R)(this.destroyed), (0, u.h)(n => n !== this.value), (0, g.b)(n => this.checkValue(n))).subscribe()
+                    }
+                    setInputEl(n) {
+                        let r = this.elementRef.nativeElement;
+                        "input" === this.elementRef.nativeElement.tagName || (r = this.elementRef.nativeElement.getElementsByTagName("input")?.item(0)), r && this.renderer.setProperty(r, "value", n)
+                    }
+                }
+                return i.\u0275fac = function (n) {
+                    return new(n || i)(e.Y36(e.SBq), e.Y36(e.Qsj), e.Y36(O.a5, 8))
+                }, i.\u0275dir = e.lG2({
+                    type: i,
+                    selectors: [
+                        ["", "CrownCreteDecimalOnly", ""]
+                    ],
+                    hostBindings: function (n, t) {
+                        1 & n && e.NdJ("input", function (s) {
+                            return t.onInputChange(s.target.value)
+                        })
+                    },
+                    outputs: {
+                        decimalOnlyChange: "decimalOnlyChange"
+                    },
+                    standalone: !0,
+                    features: [e.qOj]
+                }), i
+            })();
+            var I = o(1121),
+                B = o(9739),
+                _ = o(2874),
+                x = (() => {
+                    return (i = x || (x = {})).start = "start", i.move = "move", i.end = "end", x;
+                    var i
+                })();
+            let H = (() => {
+                    class i {
+                        constructor() {
+                            this.device = (0, e.f3M)(B.U8), this.elRef = (0, e.f3M)(e.SBq), this.renderer = (0, e.f3M)(e.Qsj), this.windowRef = (0, e.f3M)(I.Kz), this.events = ((i = !0) => ({
+                                [x.start]: i ? "touchstart" : "mousedown",
+                                [x.move]: i ? "touchmove" : "mousemove",
+                                [x.end]: i ? "touchend" : "mouseup"
+                            }))(this.device.isMobile)
+                        }
+                        ngOnInit() {
+                            this.device.orientation === _.i5.landscape && this.watchDomChanges()
+                        }
+                        ngOnDestroy() {
+                            this.clickPoint = void 0, this.delta = void 0, this.windowRef.removeEventListener(this.events.move, this.moveMethod), this.windowRef.removeEventListener(this.events.start, this.downMethod), this.windowRef.removeEventListener(this.events.end, this.upMethod)
+                        }
+                        watchDomChanges() {
+                            const n = new MutationObserver(t => {
+                                t?.length && (this.dragHandleEl = this.elRef.nativeElement?.querySelector(`[${w.handleName}]`)), this.dragHandleEl && (this.setupDrag(), n.disconnect())
+                            });
+                            n.observe(this.elRef.nativeElement, {
+                                attributes: !0,
+                                subtree: !0,
+                                attributeFilter: [w.handleName]
+                            })
+                        }
+                        setupDrag() {
+                            if (!this.dragHandleEl) return;
+                            const {
+                                x: n,
+                                y: t
+                            } = this.dragHandleEl.getBoundingClientRect();
+                            this.initialPoint = {
+                                x: n || 0,
+                                y: t || 0
+                            }, this.moveMethod = r => this.trackMouseMove(r), this.upMethod = () => {
+                                this.clickPoint = void 0, this.delta = void 0, this.windowRef.removeEventListener(this.events.move, this.moveMethod)
+                            }, this.downMethod = r => {
+                                this.clickPoint = {
+                                    y: this.device.isMobile ? r.touches?. [0].clientY || 0 : r.clientY,
+                                    x: this.device.isMobile ? r.touches?. [0].clientX || 0 : r.clientX
+                                }, this.delta = void 0, this.windowRef.addEventListener(this.events.move, this.moveMethod), this.windowRef.addEventListener(this.events.end, this.upMethod)
+                            }, this.dragHandleEl.addEventListener(this.events.start, this.downMethod)
+                        }
+                        trackMouseMove(n) {
+                            const t = this.elRef.nativeElement.getBoundingClientRect()?.x,
+                                r = this.elRef.nativeElement.getBoundingClientRect()?.y,
+                                s = this.device.isMobile ? n.touches?. [0].clientX || 0 : n.clientX;
+                            this.clickPoint && !this.delta && (this.delta = {
+                                x: t - (this.clickPoint?.x || 0),
+                                y: r - (this.clickPoint?.y || 0)
+                            });
+                            const d = this.device.isMobile ? n.touches?. [0].clientY || 0 : n.clientY;
+                            this.device.isMobile || n.preventDefault(), this.renderer.setStyle(this.elRef.nativeElement, "transform", `translate(${s-this.initialPoint.x+this.delta.x}px, ${d-this.initialPoint.y+this.delta.y}px)`)
+                        }
+                    }
+                    return i.\u0275fac = function (n) {
+                        return new(n || i)
+                    }, i.\u0275dir = e.lG2({
+                        type: i,
+                        selectors: [
+                            ["", "CrownCreteDragContainer", ""]
+                        ],
+                        standalone: !0
+                    }), i
+                })(),
+                w = (() => {
+                    class i {
+                        constructor(n) {
+                            this.elRef = n, this.handleCls = !0, this.elRef.nativeElement.style.cursor = "move"
+                        }
+                    }
+                    return i.handleName = "CrownCrete-drag-handle", i.\u0275fac = function (n) {
+                        return new(n || i)(e.Y36(e.SBq))
+                    }, i.\u0275dir = e.lG2({
+                        type: i,
+                        selectors: [
+                            ["", "CrownCreteDragContainerHandle", ""]
+                        ],
+                        hostVars: 1,
+                        hostBindings: function (n, t) {
+                            2 & n && e.uIk("CrownCrete-drag-handle", t.handleCls)
+                        },
+                        standalone: !0
+                    }), i
+                })()
+        },
+        7549: (b, y, o) => {
+            o.d(y, {
+                _N: () => i,
+                eJ: () => w
+            });
+            var e = o(2560),
+                f = o(4437),
+                g = o(6562),
+                D = o(9346),
+                u = o(833),
+                C = o(6067),
+                c = o(629),
+                M = o(7714),
+                R = o(8977),
+                L = o(9337),
+                S = o(2673);
+            let m = (() => {
+                    class t {}
+                    return t.\u0275fac = function (s) {
+                        return new(s || t)
+                    }, t.\u0275prov = e.Yz7({
+                        token: t,
+                        factory: function () {
+                            return function v(t) {
+                                return t instanceof e.R0b
+                            }((0, e.f3M)(e.R0b)) ? new a : (0, e.f3M)(p)
+                        },
+                        providedIn: "root"
+                    }), t
+                })(),
+                p = (() => {
+                    class t extends m {
+                        constructor(s) {
+                            super(), this.appRef = s, this.isScheduled = !1
+                        }
+                        schedule() {
+                            this.isScheduled || (this.isScheduled = !0, requestAnimationFrame(() => {
+                                this.appRef.tick(), this.isScheduled = !1
+                            }))
+                        }
+                    }
+                    return t.\u0275fac = function (s) {
+                        return new(s || t)(e.LFG(e.z2F))
+                    }, t.\u0275prov = e.Yz7({
+                        token: t,
+                        factory: t.\u0275fac,
+                        providedIn: "root"
+                    }), t
+                })();
+            class a extends m {
+                schedule() {}
+            }
+            let E = (() => {
+                class t {
+                    constructor(s, d) {
+                        this.cdRef = s, this.tickScheduler = d
+                    }
+                    schedule() {
+                        this.cdRef.markForCheck(), this.tickScheduler.schedule()
+                    }
+                }
+                return t.\u0275fac = function (s) {
+                    return new(s || t)(e.LFG(e.sBO), e.LFG(m))
+                }, t.\u0275prov = e.Yz7({
+                    token: t,
+                    factory: t.\u0275fac
+                }), t
+            })();
+
+            function x(t) {
+                const r = function k(t) {
+                        return r => t[r.type]?.(r)
+                    }(t),
+                    s = new C.t(1);
+                return {
+                    nextPotentialObservable(d) {
+                        s.next(d)
+                    },
+                    handlePotentialObservableChanges: () => s.pipe((0, R.x)(), function V() {
+                        return (0, c.z)((0, S.w)(t => {
+                            const r = function O(t) {
+                                return (0, f.b)(t) ? t : function I(t) {
+                                    return function B(t) {
+                                        return !!t && "object" == typeof t && !Array.isArray(t)
+                                    }(t) && Object.keys(t).length > 0 && Object.values(t).every(f.b)
+                                }(t) ? (0, g.a)(function _(t) {
+                                    return Object.keys(t).reduce((r, s) => ({
+                                        ...r,
+                                        [s]: t[s].pipe((0, R.x)())
+                                    }), {})
+                                }(t)) : function F(t) {
+                                    return "function" == typeof t?.then
+                                }(t) ? (0, D.D)(t) : new u.y(r => {
+                                    r.next(t)
+                                })
+                            }(t);
+                            let s = !0,
+                                d = !0;
+                            return new u.y(P => {
+                                const j = r.subscribe({
+                                    next(h) {
+                                        P.next({
+                                            type: "next",
+                                            value: h,
+                                            reset: s,
+                                            synchronous: d
+                                        }), s = !1
+                                    },
+                                    error(h) {
+                                        P.next({
+                                            type: "error",
+                                            error: h,
+                                            reset: s,
+                                            synchronous: d
+                                        }), s = !1
+                                    },
+                                    complete() {
+                                        P.next({
+                                            type: "complete",
+                                            reset: s,
+                                            synchronous: d
+                                        }), s = !1
+                                    }
+                                });
+                                return s && (P.next({
+                                    type: "suspense",
+                                    reset: s,
+                                    synchronous: !0
+                                }), s = !1), d = !1, j
+                            })
+                        }))
+                    }(), (0, R.x)(H), (0, L.b)(r))
+                }
+            }
+
+            function H(t, r) {
+                return t.type === r.type && t.reset === r.reset && ("next" === r.type ? t.value === r.value : "error" !== r.type || t.error === r.error)
+            }
+            let w = (() => {
+                    class t {
+                        constructor(s, d, P, j) {
+                            this.mainTemplateRef = s, this.viewContainerRef = d, this.errorHandler = P, this.renderScheduler = j, this.isMainViewCreated = !1, this.isSuspenseViewCreated = !1, this.viewContext = {
+                                $implicit: void 0,
+                                ngrxLet: void 0,
+                                error: void 0,
+                                complete: !1
+                            }, this.renderEventManager = x({
+                                suspense: () => {
+                                    this.viewContext.$implicit = void 0, this.viewContext.ngrxLet = void 0, this.viewContext.error = void 0, this.viewContext.complete = !1, this.renderSuspenseView()
+                                },
+                                next: h => {
+                                    this.viewContext.$implicit = h.value, this.viewContext.ngrxLet = h.value, h.reset && (this.viewContext.error = void 0, this.viewContext.complete = !1), this.renderMainView(h.synchronous)
+                                },
+                                error: h => {
+                                    this.viewContext.error = h.error, h.reset && (this.viewContext.$implicit = void 0, this.viewContext.ngrxLet = void 0, this.viewContext.complete = !1), this.renderMainView(h.synchronous), this.errorHandler.handleError(h.error)
+                                },
+                                complete: h => {
+                                    this.viewContext.complete = !0, h.reset && (this.viewContext.$implicit = void 0, this.viewContext.ngrxLet = void 0, this.viewContext.error = void 0), this.renderMainView(h.synchronous)
+                                }
+                            }), this.subscription = new M.w0
+                        }
+                        set ngrxLet(s) {
+                            this.renderEventManager.nextPotentialObservable(s)
+                        }
+                        static ngTemplateContextGuard(s, d) {
+                            return !0
+                        }
+                        ngOnInit() {
+                            this.subscription.add(this.renderEventManager.handlePotentialObservableChanges().subscribe())
+                        }
+                        ngOnDestroy() {
+                            this.subscription.unsubscribe()
+                        }
+                        renderMainView(s) {
+                            this.isSuspenseViewCreated && (this.isSuspenseViewCreated = !1, this.viewContainerRef.clear()), this.isMainViewCreated || (this.isMainViewCreated = !0, this.viewContainerRef.createEmbeddedView(this.mainTemplateRef, this.viewContext)), s || this.renderScheduler.schedule()
+                        }
+                        renderSuspenseView() {
+                            this.isMainViewCreated && (this.isMainViewCreated = !1, this.viewContainerRef.clear()), this.suspenseTemplateRef && !this.isSuspenseViewCreated && (this.isSuspenseViewCreated = !0, this.viewContainerRef.createEmbeddedView(this.suspenseTemplateRef))
+                        }
+                    }
+                    return t.\u0275fac = function (s) {
+                        return new(s || t)(e.Y36(e.Rgc), e.Y36(e.s_b), e.Y36(e.qLn), e.Y36(E))
+                    }, t.\u0275dir = e.lG2({
+                        type: t,
+                        selectors: [
+                            ["", "ngrxLet", ""]
+                        ],
+                        inputs: {
+                            ngrxLet: "ngrxLet",
+                            suspenseTemplateRef: ["ngrxLetSuspenseTpl", "suspenseTemplateRef"]
+                        },
+                        features: [e._Bn([E])]
+                    }), t
+                })(),
+                i = (() => {
+                    class t {}
+                    return t.\u0275fac = function (s) {
+                        return new(s || t)
+                    }, t.\u0275mod = e.oAB({
+                        type: t
+                    }), t.\u0275inj = e.cJS({}), t
+                })()
+        }
+    }
+]);
