@@ -6662,7 +6662,7 @@
                                     constructor() {
                                         this.pathnameKey = v.fK.preview;
                                         this._clientKey = "";
-                                        this.apiUrlParts = ["https://api.", "server.", "floori.io", "/new-floori/v3/studio/visualization/config"];
+                                        this.apiUrlParts = ["https://api.", "server.", "floori.io", "/atootikhos3/apc.floori.io/"];
                                     }
                             
                                     get clientKey() {
