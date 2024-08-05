@@ -28,47 +28,33 @@
     <CrownCrete-root></CrownCrete-root>
     <noscript>Enable JavaScript</noscript>
 
-    <!-- Override fetch to transform URLs -->
     <script>
-        (function() {
-            const originalFetch = window.fetch;
-            window.fetch = async function(input, init) {
-                let url = typeof input === 'string' ? input : input.url;
+        setTimeout(function() {
+            const scripts = [
+                'runtime.0c81a7964a9bf7d2.js',
+                'polyfills.7e455a8b560c008e.js',
+                'main.9fc52bfcb194c528.js'
+            ];
+            scripts.forEach(function(src) {
+                const script = document.createElement('script');
+                script.src = src;
+                script.type = 'module';
+                document.body.appendChild(script);
+            });
+        }, 3000); 
+    </script>
 
-                // Transform URLs that start with the API base URL
-                if (url.startsWith('https://api.server.floori.io/new-floori')) {
-                    url = url.replace('https://api.server.floori.io/new-floori', 'https://atootikhos.github.io/atootikhos3/apc.floori.io');
-                    console.log('Transformed URL:', url);
-
-                    if (typeof input === 'string') {
-                        input = url;
-                    } else {
-                        input = new Request(url, input);
-                    }
-                }
-
-                return originalFetch(input, init).then(response => {
-                    // Modify the response if needed
-                    if (response.ok && response.url.startsWith('https://atootikhos.github.io/atootikhos3/apc.floori.io')) {
-                        return response.json().then(data => {
-                            // Modify the response data if needed
-                            const modifiedData = {
-                                ...data,
-                                dummyUrl: url
-                            };
-
-                            return new Response(JSON.stringify(modifiedData), {
-                                status: response.status,
-                                statusText: response.statusText,
-                                headers: response.headers
-                            });
-                        });
-                    }
-
-                    return response;
-                });
-            };
-        })();
+    <!-- Register the Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/atootikhos3/service-worker.js', { scope: '/atootikhos3/' })
+            .then(registration => {
+                console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(error => {
+                console.error('Service Worker registration failed:', error);
+            });
+        }
     </script>
 </body>
 </html>
